@@ -32,7 +32,7 @@ for col in cols:
 
 # Columnas de entrada y de salida
 X_cols = df.drop(y_cols, axis=1).columns
-y_col = 'Situación al alta de UCI.Estable no precisa cuidados especiales'
+y_col = 'Situación al alta de UCI.Precisa vigilancia herida quirúrgica'
 
 # Separamos en entrada (X) y salida (y)
 X = df[X_cols]
