@@ -18,6 +18,7 @@ kernel = ['linear']
 C = np.arange(-4.0, 2.0)
 C = 10**C
 param_grid = [{'svm__C': C, 'svm__kernel': kernel}]  # Hay que acceder a los parametros del pipeline como estimator__parameter
+class_weight = 'balanced'
 
 # Leemos .csv
 df = pd.read_csv(PATH, sep=';', index_col='Unnamed: 0')
@@ -62,7 +63,7 @@ scaler = ColumnTransformer([
 pipeline = Pipeline([
     ('imputer', imputer),
     ('scaler', scaler),
-    ('svm', SVC(random_state=random_state))
+    ('svm', SVC(random_state=random_state, class_weight=class_weight))
 ])
 
 # InnerCV (GridSearchCV de 2-folds 5-times (stratified) para obtener mejores parámetros)
