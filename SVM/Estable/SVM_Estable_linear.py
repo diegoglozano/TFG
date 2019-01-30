@@ -80,3 +80,23 @@ dummy_clf = DummyClassifier(strategy='most_frequent', random_state=random_state)
 dummy_scores = cross_validate(estimator=dummy_clf, X=X, y=y, cv=5, error_score='raise', return_estimator=True, scoring='accuracy')
 print('Dummy scores: {}' .format(dummy_scores['test_score']))
 print('Dummy mean score: {}' .format(np.mean(dummy_scores['test_score'])))
+
+# # A PARTIR DE AQUI PRUEBA
+#
+# import matplotlib.pyplot as plt
+# from sklearn.decomposition import PCA
+# from sklearn.model_selection import cross_val_predict
+#
+# pca = PCA(n_components=2)
+# pipeline_pca = Pipeline([
+#     ('imputer', imputer),
+#     ('scaler', scaler),
+#     ('pca', pca)
+# ])
+# X_pca = pipeline_pca.fit_transform(X)
+# results = cross_val_predict(estimator=grid_search, X=X, y=y, cv=5)
+# X_pca = pd.DataFrame(X_pca, columns=['F1', 'F2'])
+#
+# plt.figure()
+# plt.scatter(X_pca['F1'], X_pca['F2'], c=results)
+# plt.show()
