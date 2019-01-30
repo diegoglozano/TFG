@@ -1,8 +1,9 @@
 import pandas as pd
 
-path = r'../Data/pacientes_ucic_v3.csv'
 
-df = pd.read_csv(path, sep=';', index_col='Unnamed: 0')
+PATH = r'../Data/pacientes_ucic_v3.csv'
+
+df = pd.read_csv(PATH, sep=';', index_col='Unnamed: 0')
 
 print(df.iloc[:, 220:].columns)
 y_cols = ['Situación al alta de UCI.Control de fallo cardiaco',
