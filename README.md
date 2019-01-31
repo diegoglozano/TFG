@@ -160,4 +160,25 @@ A continuación se describe una lista de variables junto con el tipo de preproce
     3. Emergente (intervención en menos de 48 horas del diagnóstico: 2
     4. Urgente (se interviene durante el ingreso de una descompensa: 3
     
+## Problema a resolver
+
+El problema a resolver se trata de un caso de clasificación mediante aprendizaje supervisado. El conjunto de datos proporcionado por el hospital consiste en un archivo de 410 filas o ejemplos, donde cada una se corresponde con un paciente distinto.  
+Tras el procesado realizado previamente, se obtienen 232 columnas o variables de entrada, de las cuales 12 serán las variables de salida a predecir. Son las siguientes:
+- Situación al alta de UCI.Estable no precisa cuidados especiales
+- Situación al alta de UCI.Precisa telemetría
+- Situación al alta de UCI.Control de fallo cardiaco
+- Situación al alta de UCI.Vigilancia anemia/anticoagulantes
+- Situación al alta de UCI.Otro
+- Situación al alta de UCI.Ayuda movilización
+- Situación al alta de UCI.Precisa vigilancia herida quirúrgica
+- Situación al alta de UCI.Vigilancia por delirio
+- Situación al alta de UCI.Ayuda comer
+- Situación al alta de UCI.Precisa ayuda respiratoria
+- Situación al alta de UCI.Limitado esfuerzo terapéutico
+- Situación al alta de UCI.Cuidados especiales por vía aérea artificial
+
+Un paciente podrá estar clasificado en más de una etiqueta en el momento de su salida de la UCI, por lo que el problema de clasificación se denomina *multietiqueta*.
+
+Inicialmente, se ha decidido tratar cada etiqueta posible como un problema independiente, es decir, entrenando un modelo distinto para cada salida. Para ello, se ha utilizado *Support Vector Machines* (SVM) como algoritmo.
+
 [1]: https://es.wikipedia.org/wiki/Variable_categ%C3%B3rica
