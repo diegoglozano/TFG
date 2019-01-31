@@ -100,3 +100,6 @@ print('Dummy mean score: {}' .format(np.mean(dummy_scores['test_score'])))
 # plt.figure()
 # plt.scatter(X_pca['F1'], X_pca['F2'], c=results)
 # plt.show()
+
+
+# PROBAR MINMAXSCALER
