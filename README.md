@@ -73,7 +73,7 @@ Una variable categórica y ordinal podría ser la calificación asociada a las n
     - Sexo. Hombre
     - Sexo. Mujer
     
-    Que tomen valor 0 o 1 según el ejemplo correspondiente.
+    Que en este caso tomarán valor 0 o 1 según el ejemplo correspondiente. En otro tipo de variables, podría haber más de una que tome valor 1.
 
 - Los datos numéricos son aquellos que toman valores continuos, como podría ser la altura o el peso de una persona.
 
@@ -90,5 +90,74 @@ A continuación se describe una lista de variables junto con el tipo de preproce
     2. 50.000-99.999: 1
     3. 100.000-149.999: 2
     4. &gt;150.000: 3
+- Talla: variable numérica que indica la altura (en centímetros) del paciente
+- Peso: variable numérica que indica la masa (en kilogramos) de un paciente
+- FECHA NACIMIENTO: variable que indica el día de nacimiento del paciente en formato dd/mm/YY
+- Fecha ingreso hospitalario: variable que indica el día en el que el paciente ingresó en la UCI en formato dd/mm/YYYY
+- EDAD: variable numérica calculada a partir de las dos anteriores (*FECHA NACIMIENTO* y *Fecha ingreso hospitalario*) que indica la edad del paciente en años.
+- Índice de Fragilidad: variable categórica y ordinal que puede tomar los siguientes valores
+    1. nan: 0
+    2. Muy saludable. Por encima de lo esperado para su edad: 1
+    3. Sano: Paciente asintomático, con actividad normal: 2
+    4. Controlado: Paciente con sintomatología tratada, con activid: 3
+    5. Vulnerable:Independiente, pero con actividad limitada por su: 4
+    6. Fragilidad leve: Necesita ayuda para tareas difíciles: 5
+    7. Fragilidad moderada: Necesita ayuda dentro y fuera de la cas: 6
+    8. Fragilidad grave: Totalmente dependiente para las actividade: 7
+    9. Fragilidad muy grave: Totalmente dependiente, no tolera ni l: 8
+    10. Enfermedad terminal: Esperanza de vida menor de 6 meses: 9
+- Ingreso en: variable categórica que no indica ningún tipo de orden. Puede tomar los siguientes valores
+    - Otra: HSA
+    - Otra: QUIROFANO
+    - Otra: URGENCIAS
+    - Otra: h Alvarez Buylla
+    - Otra: otro hospital
+    - Otra: unidad de ictus
+    - Planta
+    - Reanimación Quirúrgica
+    - UVI Cardiaca
+    - UVI Polivalente
+    - Unidad Coronaria
+- Motivo de ingreso en UCI: variable categórica que no indica ningún orden. Puede tomar los siguientes valores
+    - Complicaciones médicas del postoperatorio
+    - Enfermedad no cardiológica
+    - IAM COMPLICADO
+    - Insuficiencia cardiaca
+    - PCR reanimada
+    - Post-operatorio C.Cardiaca
+    - Re-intervención precoz (en el mismo ingreso)
+    - Re-intervención tardía (antes de 1 año)
+    - TAVI
+- núm. concentrados hematies primeras 48 h: variable que, al igual que la cifra de plaquetas, es numérica, pero sus datos se recogen como categóricos de la siguiente forma
+    - Menor de 3: 0
+    - Mayor o igual a 3: 1
+- Otros factores: variable categórica que no indica ningún orden. Además, en este caso, más de una variable podrá ser positiva. Los valores son los siguientes
+    - Apertura pleuras
+    - Transfusión de 1 a 3 CH intraoperatorios
+    - Transfusión de plasma o plaquetas
+    - Politrasfusión (más de 3 CH) intraoperatorios
+    - Administración de factores de coagulación
+- Pico de troponina: variable numérica expresada en categorías ordenadas, que pueden tomar los siguientes valores
+    1. Menor de 500: 0
+    2. 500-999: 1
+    3. 1000-3999: 2
+    4. 4000 o más: 3
+- Sangrado en las primeras 24 horas: variable numérica expresada en categorías ordenadas, tomando los siguientes valores
+    1. Menor de 500 ml: 0
+    2. 500-1000 ml: 1
+    3. Mayor de 1000 ml: 2
+- SAPS-3: variable numérica
+- SEXO: variable categórica que no indica orden. Sus valores posibles son
+    - Mujer
+    - Hombre
+- Tiempo de CEC: variable numérica
+- Tiempo de clampaje: variable numérica
+- Tiempo de isquemia: variable numérica
+- Tiempo de parada circulatoria: variable numérica
+- Tipo de cirugía: variable categórica que indica un orden según la urgencia de la cirugía
+    1. nan: 0
+    2. Programada: 1
+    3. Emergente (intervención en menos de 48 horas del diagnóstico: 2
+    4. Urgente (se interviene durante el ingreso de una descompensa: 3
     
 [1]: https://es.wikipedia.org/wiki/Variable_categ%C3%B3rica
