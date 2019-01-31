@@ -168,7 +168,6 @@ Tras el procesado realizado previamente, se obtienen 232 columnas o variables de
 - Situación al alta de UCI.Precisa telemetría
 - Situación al alta de UCI.Control de fallo cardiaco
 - Situación al alta de UCI.Vigilancia anemia/anticoagulantes
-- Situación al alta de UCI.Otro
 - Situación al alta de UCI.Ayuda movilización
 - Situación al alta de UCI.Precisa vigilancia herida quirúrgica
 - Situación al alta de UCI.Vigilancia por delirio
@@ -179,6 +178,9 @@ Tras el procesado realizado previamente, se obtienen 232 columnas o variables de
 
 Un paciente podrá estar clasificado en más de una etiqueta en el momento de su salida de la UCI, por lo que el problema de clasificación se denomina *multietiqueta*.
 
-Inicialmente, se ha decidido tratar cada etiqueta posible como un problema independiente, es decir, entrenando un modelo distinto para cada salida. Para ello, se ha utilizado *Support Vector Machines* (SVM) como algoritmo.
+Inicialmente, se ha decidido tratar cada etiqueta posible como un problema independiente, es decir, entrenando un modelo distinto para cada salida. Para ello, se ha utilizado *Support Vector Machines* (SVM) como algoritmo.  
+Para estimar un error inicial, se ha empleado la técnica de validación cruzada. Dicha técnica es comúnmente utilizada para validar modelos de aprendizaje automático. Consiste en dividir el conjunto de datos en K particiones o *folds* y realizar K iteraciones, utilizando K-1 *folds* como conjunto de entrenamiento y 1 como conjunto de test.  
+Además, es frecuente que dichas particiones sean estratificadas, es decir, que cada una de ellas siga la misma distribución que el conjunto total de datos. Esto es especialmente útil en casos como el presente, en el que los datos no siguen una distribución balanceada. Si, por ejemplo, se dispone de un conjunto de datos de 100 ejemplos, donde 95 etiquetas de salida son 0 y 5 son 1, sería probable encontrarse con una iteración en la que los 5 ejemplos positivos se encontrasen en el conjunto de entrenamiento, no pudiendo realizar las pruebas adecuadamente.  
+
 
 [1]: https://es.wikipedia.org/wiki/Variable_categ%C3%B3rica
