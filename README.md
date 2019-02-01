@@ -196,7 +196,7 @@ Una forma de ajustarlos es a base de prueba y error. Para ello, es común utiliz
 Para el caso de *grid search*, se selecciona una serie de valores para cada uno de los hiperparámetros y se realizan pruebas con todas las combinaciones posibles. Previamente se debe seleccionar una métrica y, tras realizar las pruebas, los mejores hiperparámetros serán los que ofrezcan unos resultados cuya métrica sea la más alta o la más baja, según el caso.  
 En el caso de *random search*, se selecciona un abanico de valores para cada uno de los hiperparámetros y, de forma aleatoria, se realizan pruebas con distintas combinaciones un número prefijado de iteraciones.  
 
-![GridSearchRandomSearch](./Images/gridsearchrandomsearch.png))
+![GridSearchRandomSearch](./Images/gridsearchrandomsearch.png)
 
 Además, es frecuente aplicar dichas técnicas a su vez con otra validación cruzada. De cara a comparar modelos entre sí y, por tanto, a seleccionar los mejores hiperparámetros, una forma adecuada de hacerlo es repitiendo una validación cruzada de 2 particiones 5 veces. [3]  
 
