@@ -227,6 +227,33 @@ Si se divide un conjunto de datos en uno de entrenamiento y uno de test y se sel
 
 ![Overfitting](./Images/overfitting.png)
 
+## Resultados
+
+Se han realizado los experimentos para todas las variables de salida excepto para *Situación al alta.Cuidados especiales por vía aérea artificial*. Esto es debido a que dicha clase solo contiene un ejemplo positivo, que podría contenerse o en el conjunto de entrenamiento o en el de test. En el primer caso, sería imposible testear los resultados y, en el segundo, el modelo sería incapaz de predecir una clase no observada previamente.
+
+Se ha escogido como técnica de elección de hiperparámetros *grid search*, debido a que el parámetro de penalización *C* habitualmente toma unos valores en un rango conocido. En este caso los valores escogidos han sido:  
+(10^-4, 10^-3, 10^-2, 10^-1, 10^0, 10^1, 10^2)
+
+Como métrica para elegir el mejor valor se ha escogido la exactitud o *accuracy*, que calcula el porcentaje de ejemplos acertados frente al total.  
+Por otra parte, también se ha escogido la *accuracy* como métrica para mostrar los resultados de la validación cruzada.
+
+Además, dado que el conjunto de datos del problema sufre un desbalanceo, se ha modificado el código añadiendo un parámetro que tiene en cuenta la presencia de las clases:
+
+```python
+class_weight='balanced'
+```
+
+Por último, es común utilizar una *semilla* para inicializar el generador de números pseudoaleatorios, de cara a poder replicar resultados y hacer comparaciones. En este caso, la librería *scikit-learn* ofrece un parámetro que se puede asignar a todas las clases que en algún momento deban inicializar números de forma aleatoria. El código es el siguiente:
+
+```python
+random_state=11
+```
+
+Los resultados obtenidos han sido los siguientes:
+
+![results_svm_linear](./Images/results_svm_linear.png)
+
+
 [1]: https://es.wikipedia.org/wiki/Variable_categ%C3%B3rica
 
 [2]: Aquellos que deben ser asignados antes de la ejecución
