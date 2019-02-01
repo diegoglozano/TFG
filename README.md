@@ -180,7 +180,7 @@ Tras el procesado realizado previamente, se obtienen 232 columnas o variables, d
 
 Un paciente podrá estar clasificado en más de una etiqueta en el momento de su salida de la UCI, por lo que el problema de clasificación se denomina *multietiqueta*.
 
-Inicialmente, se ha decidido tratar cada etiqueta posible como un problema independiente, es decir, entrenando un modelo distinto para cada salida. Para ello, se ha utilizado *Support Vector Machines* (SVM) como algoritmo.
+Inicialmente, se ha decidido tratar cada etiqueta posible como un problema independiente, es decir, entrenando un modelo distinto para cada salida.
 
 ### Validación cruzada
 
@@ -200,16 +200,32 @@ En el caso de *random search*, se selecciona un abanico de valores para cada uno
 
 Además, es frecuente aplicar dichas técnicas a su vez con otra validación cruzada. De cara a comparar modelos entre sí y, por tanto, a seleccionar los mejores hiperparámetros, una forma adecuada de hacerlo es repitiendo una validación cruzada de 2 particiones 5 veces. [3]  
 
-Dado que inicialmente se ha decidido aplicar el algoritmo SVM con un *kernel* lineal, el único hiperparámetro a optimizar es el de penalización *C*. Cuanto menor sea dicho hiperparámetro, más penalización habrá sobre el modelo, evitando posibles casos de *overfitting* o *sobreajuste*.
-
 Aplicando las dos técnicas a la vez, el resultado es una partición inicial del conjunto de datos en 5 *folds*.  
 En la primera iteración, se seleccionarán 4 particiones como conjunto de entrenamiento y 1 como conjunto de test. Dichos conjuntos seguirán la misma distribución. A su vez, el conjunto de entrenamiento resultante se dividirá en 2 *folds* aleatorios en 5 ocasiones, por lo que se obtendrán 10 resultados distintos para cada una de las combinaciones de hiperparámetros.  
-Se calculará la media de estos vectores de 10 componentes (en este caso cada uno correspondiente a un valor de *C*) y, tras comparar los resultados, se obtendrá la mejor combinación de hiperparámetros de entre todas las probadas. Por último, se entrenará el conjunto de 4 *folds* inicial con este conjunto de hiperparámetros y se comprobarán los resultados en la partición restante.  
+Se calculará la media de estos vectores de 10 componentes y, tras comparar los resultados, se obtendrá la mejor combinación de hiperparámetros de entre todas las probadas. Por último, se entrenará el conjunto de 4 *folds* inicial con este conjunto de hiperparámetros y se comprobarán los resultados en la partición restante.  
 Este proceso se repetirá en 4 ocasiones más.
 
 El resultado final es un vector de 5 componentes. Cada una de ellas indicará el resultado de la métrica escogida para la validación cruzada de 5 particiones. Su media representará los resultados estimados para nuestro modelo.
 
+## Algoritmo
 
+### *Support Vector Machines*
+
+*Support Vector Machines* (SVM) es un conjunto de algoritmos de aprendizaje automático empleados para resolver tanto problemas de clasificación como de regresión.  
+Dicho algoritmo trata de separar distintas clases con la mayor separación posible mediante hiperplanos, siendo dichos hiperplanos, en un principio, lineales.
+
+![SVM](./Images/svm.png)
+
+Dado que inicialmente se ha decidido aplicar el algoritmo SVM con un *kernel* lineal, el único hiperparámetro a optimizar es el de penalización *C*. Cuanto menor sea dicho hiperparámetro, más penalización habrá sobre el modelo, evitando posibles casos de *overfitting* o *sobreajuste*.
+
+![SVM_C](./Images/svm_parameter_c.png)
+
+### Sobreajuste
+
+El *overfitting* o sobreajuste se da cuando un modelo no es capaz de generalizar lo aprendido a la hora de aplicarlo a datos nuevos.  
+Si se divide un conjunto de datos en uno de entrenamiento y uno de test y se selecciona una métrica, tras entrenar el modelo mediante la primera partición y calcular la métrica obtenida tanto en el entrenamiento y en el test, el modelo estará sobreajustado si la métrica del conjunto de entrenamiento es superior a la del test.
+
+![Overfitting](./Images/overfitting.png)
 
 [1]: https://es.wikipedia.org/wiki/Variable_categ%C3%B3rica
 
