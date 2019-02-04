@@ -231,6 +231,8 @@ K(X, y) = (X.T·y + c)^d
 
 donde *d* es el grado y *c* el coeficiente (hiperparámetros que se deben ajustar).
 
+![SVM_poly](./Images/svm_kernel_poly.jpg)
+
 ### Sobreajuste
 
 El *overfitting* o sobreajuste se da cuando un modelo no es capaz de generalizar lo aprendido a la hora de aplicarlo a datos nuevos.  
