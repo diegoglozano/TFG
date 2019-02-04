@@ -249,11 +249,13 @@ Además, dado que el conjunto de datos del problema sufre un desbalanceo, se ha 
 class_weight='balanced'
 ```
 
-Por último, es común utilizar una *semilla* para inicializar el generador de números pseudoaleatorios, de cara a poder replicar resultados y hacer comparaciones. En este caso, la librería *scikit-learn* ofrece un parámetro que se puede asignar a todas las clases que en algún momento deban inicializar números de forma aleatoria. El código es el siguiente:
+Por otra parte, es común utilizar una *semilla* para inicializar el generador de números pseudoaleatorios, de cara a poder replicar resultados y hacer comparaciones. En este caso, la librería *scikit-learn* ofrece un parámetro que se puede asignar a todas las clases que en algún momento deban inicializar números de forma aleatoria. El código es el siguiente:
 
 ```python
 random_state=11
 ```
+
+Por último, se ha decidido entrenar además un *modelo tonto* con el fin de comparar resultados. En este caso, siempre predice la clase mayoritaria, por lo que su exactitud o *accuracy* será igual al porcentaje de ejemplos de la clase mayoritaria presentes en el conjunto de datos.
 
 Los resultados obtenidos han sido los siguientes:
 
