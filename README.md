@@ -220,6 +220,12 @@ Dado que inicialmente se ha decidido aplicar el algoritmo SVM con un *kernel* li
 
 ![SVM_C](./Images/svm_parameter_c.png)
 
+Con el fin de buscar alternativas que mejoren las métricas, también se ha decidido aplicar *SVM* con un kernel de función de base radial. Esto permite que la función resultante sea no lineal, conllevando en la mayoría de ocasiones modelos más complejos.
+
+![SVM_rbf](./Images/svm_kernel_rbf.jpg)
+
+Además, en este caso existe un hiperparámetro más a optimizar, *gamma*.
+
 ### Sobreajuste
 
 El *overfitting* o sobreajuste se da cuando un modelo no es capaz de generalizar lo aprendido a la hora de aplicarlo a datos nuevos.  
@@ -253,6 +259,12 @@ Los resultados obtenidos han sido los siguientes:
 
 ![results_svm_linear](./Images/results_svm_linear.png)
 
+En el caso de uso de un kernel *rbf*, el rango de valores utilizados para optimizar *gamma* ha sido el siguiente:  
+(10^-4, 10^-3, 10^-2, 10^-1, 10^0)
+
+Los resultados obtenidos han sido los siguientes:
+
+![results_svm_rbf](./Images/results_svm_rbf.png)
 
 [1]: https://es.wikipedia.org/wiki/Variable_categ%C3%B3rica
 
