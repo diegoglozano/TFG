@@ -261,12 +261,24 @@ Los resultados obtenidos han sido los siguientes:
 
 ![results_svm_linear](./Images/results_svm_linear.png)
 
-En el caso de uso de un kernel *rbf*, el rango de valores utilizados para optimizar *gamma* ha sido el siguiente:  
-(10^-4, 10^-3, 10^-2, 10^-1, 10^0)
+En el caso de uso de un kernel *rbf*, el rango de valores utilizados ha sido el siguiente:  
+(10^-4, 10^-3, 10^-2, 10^-1, 10^0, 10^1, 10^2) para C
+(10^-4, 10^-3, 10^-2, 10^-1, 10^0) para gamma
+
 
 Los resultados obtenidos han sido los siguientes:
 
 ![results_svm_rbf](./Images/results_svm_rbf.png)
+
+Para el caso de un kernel polinómico, el rango de valores utilizado ha sido:  
+(10^-4, 10^-3, 10^-2, 10^-1, 10^0, 10^1, 10^2) para C  
+(10^-4, 10^-3, 10^-2, 10^-1, 10^0) para gamma  
+(2, 3) para el grado  
+(-1) para el coeficiente  
+
+Los resultados obtenidos han sido los siguientes:
+
+![results_svm_poly](./Images/results_svm_poly.png)
 
 [1]: https://es.wikipedia.org/wiki/Variable_categ%C3%B3rica
 
