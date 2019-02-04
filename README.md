@@ -220,11 +220,16 @@ Dado que inicialmente se ha decidido aplicar el algoritmo SVM con un *kernel* li
 
 ![SVM_C](./Images/svm_parameter_c.png)
 
-Con el fin de buscar alternativas que mejoren las métricas, también se ha decidido aplicar *SVM* con un kernel de función de base radial. Esto permite que la función resultante sea no lineal, conllevando en la mayoría de ocasiones modelos más complejos.
+Con el fin de buscar alternativas que mejoren las métricas, también se ha decidido aplicar *SVM* con un kernel de función de base radial. Esto permite que la función resultante sea no lineal, conllevando en la mayoría de ocasiones modelos más complejos.  
+Además, en este caso existe un hiperparámetro más a optimizar, *gamma*.
 
 ![SVM_rbf](./Images/svm_kernel_rbf.jpg)
 
-Además, en este caso existe un hiperparámetro más a optimizar, *gamma*.
+Por último, también es posible aplicar un kernel *polinómico*, que se define:
+
+K(X, y) = (X.T·y + c)^d
+
+donde *d* es el grado y *c* el coeficiente (hiperparámetros que se deben ajustar).
 
 ### Sobreajuste
 
