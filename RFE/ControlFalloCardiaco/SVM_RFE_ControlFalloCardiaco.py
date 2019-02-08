@@ -15,7 +15,7 @@ from sklearn.feature_selection import RFECV
 # Variables globales
 PATH = r'../../Data/pacientes_ucic_v3.csv'
 random_state = 11
-C = 0.01
+C = 0.001
 kernel = 'linear'
 class_weight = 'balanced'
 scoring = 'accuracy'
@@ -31,7 +31,7 @@ y_cols = [col for col in cols if 'Situación al alta' in col]
 
 # Columnas de entrada y de salida
 X_cols = df.drop(y_cols, axis=1).columns
-y_col = 'Situación al alta de UCI.Estable no precisa cuidados especiales'
+y_col = 'Situación al alta de UCI.Control de fallo cardiaco'
 
 # Separamos en entrada (X) y salida (y)
 X = df[X_cols]

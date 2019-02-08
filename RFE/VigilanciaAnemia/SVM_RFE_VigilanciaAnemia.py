@@ -15,10 +15,10 @@ from sklearn.feature_selection import RFECV
 # Variables globales
 PATH = r'../../Data/pacientes_ucic_v3.csv'
 random_state = 11
-C = 0.01
+C = 1
 kernel = 'linear'
 class_weight = 'balanced'
-scoring = 'accuracy'
+scoring = 'f1'
 
 # Leemos .csv
 df = pd.read_csv(PATH, sep=';', index_col='Unnamed: 0')
@@ -31,7 +31,7 @@ y_cols = [col for col in cols if 'Situación al alta' in col]
 
 # Columnas de entrada y de salida
 X_cols = df.drop(y_cols, axis=1).columns
-y_col = 'Situación al alta de UCI.Estable no precisa cuidados especiales'
+y_col = 'Situación al alta de UCI.Vigilancia anemia/anticoagulantes'
 
 # Separamos en entrada (X) y salida (y)
 X = df[X_cols]
@@ -97,6 +97,7 @@ skf = StratifiedKFold(n_splits=5)
 
 # Clasificador
 clf = SVC(C=C, kernel=kernel, random_state=random_state, class_weight=class_weight)
+# creo que aqui grid_search = GridSearchCV(clf, param_grid=param_grid, scoring=scoring)
 
 # RFE con cross validation
 rfecv = RFECV(clf, cv=skf, scoring=scoring)
@@ -108,13 +109,13 @@ print(f'Number of features: {rfecv.n_features_}\n')
 # Imprimimos RFE accuracy
 print(f'RFE {scoring}: {rfecv.grid_scores_[rfecv.n_features_]}\n')
 
-# # Dibujamos gráfica (features vs accuracy)
-# # Plot number of features VS. cross-validation scores
-# plt.figure()
-# plt.xlabel("Number of features selected")
-# plt.ylabel("Cross validation score (nb of correct classifications)")
-# plt.plot(range(1, len(rfecv.grid_scores_) + 1), rfecv.grid_scores_)
-# plt.show()
+# Dibujamos gráfica (features vs accuracy)
+# Plot number of features VS. cross-validation scores
+plt.figure()
+plt.xlabel("Number of features selected")
+plt.ylabel("Cross validation score (nb of correct classifications)")
+plt.plot(range(1, len(rfecv.grid_scores_) + 1), rfecv.grid_scores_)
+plt.show()
 
 
 # TEST CON VALIDACIÓN CRUZADA
