@@ -3,7 +3,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split, cross_val_predict
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.impute import SimpleImputer
 from sklearn.metrics import accuracy_score, f1_score, recall_score, precision_score
 
@@ -45,7 +45,8 @@ scaler = ColumnTransformer([
 # Creamos el Pipeline incorporando ColumnTransformer y Clasificador
 pipeline = Pipeline([
     ('imputer', imputer),
-    ('scaler', scaler)
+    ('scaler', scaler),
+    ('minmax', MinMaxScaler())
 ])
 
 pipeline.fit(X_train)
@@ -57,7 +58,7 @@ model.add(Dense(220, activation='relu', input_dim=220))
 model.add(Dense(11, activation='relu'))
 model.add(Dense(11, activation='sigmoid'))
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
-model.fit(X_train, y_train, validation_data=[X_test, y_test], epochs=8)
+model.fit(X_train, y_train, validation_data=[X_test, y_test], epochs=15)
 
 test_pred = model.predict(X_test)
 test_pred = test_pred >= 0.5
