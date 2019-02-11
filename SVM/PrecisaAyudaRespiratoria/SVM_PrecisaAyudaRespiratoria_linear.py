@@ -4,11 +4,15 @@ import numpy as np
 
 from sklearn.preprocessing import StandardScaler
 from sklearn.impute import SimpleImputer
-from sklearn.model_selection import RepeatedStratifiedKFold, GridSearchCV, cross_validate
+from sklearn.model_selection import RepeatedStratifiedKFold, GridSearchCV, cross_validate, cross_val_predict
 from sklearn.svm import SVC
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.dummy import DummyClassifier
+from sklearn.metrics import f1_score, confusion_matrix, make_scorer
+
+import warnings
+warnings.filterwarnings('ignore')
 
 
 # Variables globales
@@ -19,6 +23,7 @@ C = np.arange(-4.0, 2.0)
 C = 10**C
 param_grid = [{'svm__C': C, 'svm__kernel': kernel}]  # Hay que acceder a los parametros del pipeline como estimator__parameter
 class_weight = 'balanced'
+scoring = 'accuracy'
 
 # Leemos .csv
 df = pd.read_csv(PATH, sep=';', index_col='Unnamed: 0')
@@ -68,15 +73,23 @@ pipeline = Pipeline([
 
 # InnerCV (GridSearchCV de 2-folds 5-times (stratified) para obtener mejores parámetros)
 rskf = RepeatedStratifiedKFold(n_splits=2, n_repeats=5, random_state=random_state)  # inner
-grid_search = GridSearchCV(estimator=pipeline, param_grid=param_grid, scoring='accuracy', cv=rskf)
+grid_search = GridSearchCV(estimator=pipeline, param_grid=param_grid, scoring=scoring, cv=rskf)
 
 # OuterCV (Validación cruzada de 5 folds (stratified) para estimar Accuracy)
-scores = cross_validate(estimator=grid_search, X=X, y=y, cv=5, error_score='raise', return_estimator=True, scoring='accuracy')  # outer
+scores = cross_validate(estimator=grid_search, X=X, y=y, cv=5, error_score='raise', return_estimator=True, scoring=scoring)  # outer
 print('Scores: {}' .format(scores['test_score']))
 print('Mean score: {}' .format(np.mean(scores['test_score'])))
 
 # Creamos clasificador 'tonto' y obtenemos resultados también con validación cruzada (CV=5) para tener resultados más realistas
 dummy_clf = DummyClassifier(strategy='most_frequent', random_state=random_state)
-dummy_scores = cross_validate(estimator=dummy_clf, X=X, y=y, cv=5, error_score='raise', return_estimator=True, scoring='accuracy')
+dummy_scores = cross_validate(estimator=dummy_clf, X=X, y=y, cv=5, error_score='raise', return_estimator=True, scoring=scoring)
 print('Dummy scores: {}' .format(dummy_scores['test_score']))
 print('Dummy mean score: {}' .format(np.mean(dummy_scores['test_score'])))
+
+# Matriz de confusion
+results = cross_val_predict(grid_search, X=X, y=y, cv=5)
+conf_m = confusion_matrix(y, results, labels=[1, 0])
+print(conf_m)
+
+# F1_Score
+print(f1_score(y, results))
