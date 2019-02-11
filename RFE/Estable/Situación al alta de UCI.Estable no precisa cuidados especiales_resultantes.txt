@@ -1,0 +1,27 @@
+SAPS-3 num
+cca_nyha_PF cat
+Índice de Fragilidad cat
+Factores de riesgo cardiovascular.Tabaco cat
+Resultado último eco.Patrón pseudonormal diastólico cat
+Resultado último eco.Miocardiopatía hipertrófica con S.A.M. cat
+Tratamiento anticoagulante.Antiagregantes cat
+Intervención realizada.Cierre CIV cat
+Intervención realizada.Prótesis mecánica aórtica cat
+Intervención realizada.Prótesis mecánica mitral cat
+Intervención realizada.Reparación trucúspide cat
+Complicaciones hemodinámicas.Fallo VI cat
+Complicaciones hemodinámicas.FA/Flutter cat
+Complicaciones hemodinámicas.Hipotensión leve cat
+Terapias en UCI.Catecolaminas más de 72 horas cat
+Terapias en UCI.Cardioversión cat
+Terapias en UCI.Ventilación mecánica invasiva menor de 24 horas cat
+Terapias en UCI.Ventilación no invasiva cat
+Terapias en UCI.TAC craneal cat
+Complicaciones respiratorias.S. restrictivo (obesidad) cat
+Complicaciones respiratorias.Otro cat
+Complicaciones hemorrágicas.Sangrado por drenaje quirúrgico cat
+Complicaciones hemorrágicas.Otro cat
+Tratamiento percutáneo tras el ingreso.STENT EN CX cat
+Ingreso en: Planta cat
+Motivo de ingreso en UCI: PCR reanimada cat
+Motivo de ingreso en UCI: Post-operatorio C.Cardiaca cat

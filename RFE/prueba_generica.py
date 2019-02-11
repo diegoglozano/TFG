@@ -7,6 +7,10 @@ from sklearn.impute import SimpleImputer
 from sklearn.compose import ColumnTransformer, make_column_transformer
 
 
+sel_cols = ['1', '2', '3', '4']
+print(str(sel_cols))
+
+
 # Inicialmente tengo esto (2 numericas y 3 categoricas)
 df = pd.DataFrame(np.random.randint(5, size=(100, 5)), columns=list('ABCDE'))
 
