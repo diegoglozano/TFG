@@ -1,0 +1,7 @@
+cca_fevi_PF_varab_pre-ingr cat
+Tipo de cirugía cat
+Enfermedad cardiológica.Cirugía mitral previa cat
+Tratamiento anticoagulante.Antiagregantes cat
+Tratamiento anticoagulante.A.C.O. cat
+Intervención realizada.Reparación mitral cat
+Tratamiento percutáneo tras el ingreso.Otro cat

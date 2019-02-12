@@ -1,0 +1,89 @@
+Tiempo de CEC num
+Tiempo de clampaje num
+Tiempo de isquemia num
+SAPS-3 num
+Hombre cat
+Mujer cat
+cca_nyha_PF cat
+Índice de Fragilidad cat
+cca_fevi_PF_varab_pre-ingr cat
+Tipo de cirugía cat
+Pico de troponina cat
+Cifra de plaquetas más baja cat
+núm. concentrados hematies primeras 48 h cat
+Factores de riesgo cardiovascular.Dislipemia cat
+Factores de riesgo cardiovascular.Diabetes cat
+Factores de riesgo cardiovascular.Enfermedad ileo-femoral cat
+Enfermedad cardiológica.Coronaria cat
+Enfermedad cardiológica.Aorta ascendente cat
+Enfermedad cardiológica.F.A. crónica cat
+Enfermedad cardiológica.Enfermedad valvular cat
+Enfermedad cardiológica.Miocardiopatia dilatada crónica cat
+Enfermedad cardiológica.Marcapasos tricameral/desfibrilador cat
+Enfermedad cardiológica.Endocarditis protésica tardía cat
+Enfermedad cardiológica.Endocarditis v. nativa cat
+Enfermedad cardiológica.Tumores cardiacos cat
+Enfermedad cardiológica.Otro cat
+Resultado último eco.Alteraciones segmentarias contractilidad cat
+Resultado último eco.Estenosis aórtica cat
+Resultado último eco.Insuficiencia mitral cat
+Resultado último eco.Dilatación VI cat
+Resultado último eco.TAPSE bajo cat
+Resultado último eco.HTP mayor de 45 MMHG cat
+Resultado último eco.Derrame pericárdico cat
+Resultado último eco.Insuficiencia tricúspide cat
+Resultado último eco.Lesiones de endocarditis-imágenes vibrátiles velos valvulare cat
+Resultado último eco.Mixoma auricular cat
+Resultado último eco.Estenosis mitral cat
+Resultado último eco.Otro cat
+cca_lesiones_coronariog_angioTC_PF_varia.DA cat
+Tratamiento anticoagulante.A.C.O. cat
+Intervención realizada.Trasplante cardiaco cat
+Intervención realizada.Drenaje pericárdico cat
+Intervención realizada.Prótesis mecánica aórtica cat
+Intervención realizada.Prótesis biológica mitral cat
+Intervención realizada.Prótesis mecánica mitral cat
+Intervención realizada.Resección mixoma auricular cat
+Intervención realizada.Reparación trucúspide cat
+Intervención realizada.Otro cat
+Medidas soporte a la salida de quirófano.Balón I.A. cat
+Medidas soporte a la salida de quirófano.Marcapasos cat
+Medidas soporte a la salida de quirófano.Asistencia ventricular cat
+Complicaciones hemodinámicas.FA/Flutter cat
+Complicaciones hemodinámicas.Catecolaminas más de 12h cat
+Complicaciones hemodinámicas.Hipotensión leve cat
+Complicaciones hemodinámicas.Fallo VD cat
+Complicaciones hemodinámicas.Bloqueos  AV cat
+Complicaciones hemodinámicas.Shock séptico cat
+Complicaciones hemodinámicas.TV cat
+Complicaciones hemodinámicas.Fallo VD- bajo gasto con PVC elevada cat
+Isquemia miocárdica peri-operatoria.Cambios en ECG cat
+Isquemia miocárdica peri-operatoria.Cambios en ecocardio cat
+Isquemia miocárdica peri-operatoria.Deterioro hemodinámico/arritmias ventriculares cat
+Terapias en UCI.Ventilación mecánica más de 72 horas cat
+Terapias en UCI.Catecolaminas más de 72 horas cat
+Terapias en UCI.Cardioversión cat
+Terapias en UCI.Ventilación no invasiva cat
+Terapias en UCI.Técnicas de sustitución renal cat
+Terapias en UCI.Coronariografía indicada en UCI cat
+Terapias en UCI.Balón I.A. cat
+Terapias en UCI.Asistencia ventricular cat
+Terapias en UCI.Ventilación no invasiva post-extubación cat
+Terapias en UCI.C. valvular durante ingreso en UCI cat
+Terapias en UCI.ECMO VA cat
+Terapias en UCI.TAC craneal cat
+Complicaciones neurológicas.Encefalopatía anoxica cat
+Complicaciones respiratorias.Derrame pleural cat
+Complicaciones respiratorias.Atelectasias cat
+Complicaciones respiratorias.H.T.P. cat
+Complicaciones respiratorias.S. restrictivo (obesidad) cat
+Complicaciones renales.Creatinina mayor de 3 de nueva aparición cat
+Complicaciones hemorrágicas.Sangrado por drenaje quirúrgico cat
+Tratamiento percutáneo tras el ingreso.STENT EN CD cat
+Tratamiento percutáneo tras el ingreso.STENT EN DA cat
+Situación funcional al ingreso Hospital.Fallo cardiaco con necesidad diuréticos IV cat
+Situación funcional al ingreso Hospital.Estable cat
+Situación funcional al ingreso Hospital.En ventilación mecánica cat
+Situación funcional al ingreso Hospital.Parada cardiaca recuperada cat
+Ingreso en: UVI Polivalente cat
+Motivo de ingreso en UCI: TAVI cat

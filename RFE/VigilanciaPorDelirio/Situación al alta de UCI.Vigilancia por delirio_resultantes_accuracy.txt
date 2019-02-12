@@ -1,0 +1,67 @@
+Tiempo de CEC num
+Tiempo de parada circulatoria num
+Pico de troponina cat
+Enfermedad cardiológica.Tumores cardiacos cat
+Enfermedad cardiológica.Pericardio cat
+Resultado último eco.Estenosis aórtica cat
+Resultado último eco.Insuficiencia aórtica cat
+Resultado último eco.Mixoma auricular cat
+Resultado último eco.Constricción pericárdica cat
+cca_lesiones_coronariog_angioTC_PF_varia.DA cat
+cca_lesiones_coronariog_angioTC_PF_varia.Dilatación aorta ascendente cat
+Intervención realizada.Bypass a DA cat
+Intervención realizada.Bypass a CD cat
+Intervención realizada.Tubo supra coronario cat
+Intervención realizada.Resección mixoma auricular cat
+Intervención realizada.Reparación trucúspide cat
+Intervención realizada.Resección pericardio cat
+Complicaciones hemodinámicas.Shock cardiogénico cat
+Complicaciones hemodinámicas.Fallo VD cat
+Complicaciones hemodinámicas.Shock hemorrágico cat
+Complicaciones hemodinámicas.Parada cardiaca cat
+Complicaciones hemodinámicas.Síndrome de bajo gasto - una o dos catecolaminas más de 12 h cat
+Complicaciones hemodinámicas.Fallo VD- bajo gasto con PVC elevada cat
+Isquemia miocárdica peri-operatoria.Cambios en ECG cat
+Terapias en UCI.Ventilación mecánica más de 72 horas cat
+Terapias en UCI.Catecolaminas más de 72 horas cat
+Terapias en UCI.Ventilación mecánica invasiva menor de 24 horas cat
+Terapias en UCI.Ventilación no invasiva cat
+Terapias en UCI.Coronariografía indicada en UCI cat
+Terapias en UCI.Asistencia ventricular cat
+Terapias en UCI.Ventilación no invasiva post-extubación cat
+Terapias en UCI.Marcapasos endocavitario cat
+Terapias en UCI.C. valvular durante ingreso en UCI cat
+Terapias en UCI.TAC craneal cat
+Terapias en UCI.Traqueotomía percutánea cat
+Terapias en UCI.Otro cat
+Complicaciones neurológicas.Delirio cat
+Complicaciones neurológicas.Polineuropatía enfermo crítico cat
+Complicaciones neurológicas.ACV cat
+Complicaciones neurológicas.Convulsiones cat
+Complicaciones neurológicas.Encefalopatía anoxica cat
+Complicaciones respiratorias.Derrame pleural cat
+Complicaciones respiratorias.Atelectasias cat
+Complicaciones respiratorias.Traumatismo torácico post-resucitación cat
+Complicaciones respiratorias.Otro cat
+Complicaciones renales.Inicio de tratamiento sustitutivo renal cat
+Complicaciones digestivas.Ileo paralítico cat
+Complicaciones hemorrágicas.Parada cardiaca por rotura aorta/ventriculo cat
+Tratamiento percutáneo tras el ingreso.Otro cat
+Infecciones.Traqueobronquitis cat
+Infecciones.Infección urinaria cat
+Infecciones.Bacteriemia cat
+Infecciones.Infección inseción dispositivo cat
+Reintervencion durante su estancia UCI.Sangrado por drenajes en las primeras 24 horas cat
+Reintervencion durante su estancia UCI.Trasplante cardíaco cat
+Reintervencion durante su estancia UCI.Otro cat
+Situación funcional al ingreso Hospital.Fallo cardiaco con necesidad diuréticos IV cat
+Situación funcional al ingreso Hospital.Estable cat
+Situación funcional al ingreso Hospital.Ventilación no invasiva cat
+Situación funcional al ingreso Hospital.Inestable necesita catecolaminas cat
+Situación funcional al ingreso Hospital.Parada cardiaca recuperada cat
+Ingreso en: Planta cat
+Ingreso en: UVI Cardiaca cat
+Ingreso en: Unidad Coronaria cat
+Motivo de ingreso en UCI: Enfermedad no cardiológica cat
+Motivo de ingreso en UCI: PCR reanimada cat
+Motivo de ingreso en UCI: Post-operatorio C.Cardiaca cat

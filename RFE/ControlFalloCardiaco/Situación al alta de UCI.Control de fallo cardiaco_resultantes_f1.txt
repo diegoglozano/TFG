@@ -1,0 +1,33 @@
+Tiempo de clampaje num
+SAPS-3 num
+cca_nyha_PF cat
+Índice de Fragilidad cat
+cca_fevi_PF_varab_pre-ingr cat
+Tipo de cirugía cat
+Enfermedad cardiológica.Pericardio cat
+Resultado último eco.Disfunción anuloplastia cat
+Resultado último eco.Dilatación VD cat
+Intervención realizada.Reparación mitral cat
+Intervención realizada.Reparación trucúspide cat
+Medidas soporte a la salida de quirófano.Asistencia ventricular cat
+Medidas soporte a la salida de quirófano.Otro cat
+Complicaciones hemodinámicas.Fallo VI cat
+Complicaciones hemodinámicas.FA/Flutter cat
+Complicaciones hemodinámicas.Síndrome de bajo gasto - una o dos catecolaminas más de 12 h cat
+Complicaciones hemodinámicas.Fallo VI- bajo gasto con PCE elevada cat
+Terapias en UCI.Catecolaminas más de 72 horas cat
+Terapias en UCI.Ventilación mecánica invasiva menor de 24 horas cat
+Terapias en UCI.Ventilación no invasiva cat
+Terapias en UCI.Coronariografía indicada en UCI cat
+Terapias en UCI.Ventilación no invasiva post-extubación cat
+Terapias en UCI.Angiotac toraco-abdominal cat
+Complicaciones respiratorias.S. restrictivo (obesidad) cat
+Infecciones.Mediastintis cat
+Infecciones.Infección catéter cat
+Infecciones.MARSA cat
+Infecciones.Otro cat
+Situación funcional al ingreso Hospital.Fallo cardiaco con necesidad diuréticos IV cat
+Situación funcional al ingreso Hospital.Estable cat
+Situación funcional al ingreso Hospital.Inestable necesita catecolaminas cat
+Ingreso en: Otra: QUIROFANO cat
+Motivo de ingreso en UCI: TAVI cat

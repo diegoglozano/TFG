@@ -1,0 +1,24 @@
+cca_nyha_PF cat
+Índice de Fragilidad cat
+Enfermedad cardiológica.Tumores cardiacos cat
+cca_lesiones_coronariog_angioTC_PF_varia.Dilatación aorta ascendente cat
+Intervención realizada.Reparación esternal cat
+Complicaciones hemodinámicas.Parada cardiaca cat
+Terapias en UCI.C. valvular durante ingreso en UCI cat
+Terapias en UCI.TAC craneal cat
+Complicaciones neurológicas.Delirio cat
+Complicaciones neurológicas.ACV cat
+Complicaciones respiratorias.Derrame pleural cat
+Complicaciones respiratorias.Atelectasias cat
+Complicaciones respiratorias.Traumatismo torácico post-resucitación cat
+Complicaciones respiratorias.Otro cat
+Complicaciones hemorrágicas.Otro cat
+Tratamiento percutáneo tras el ingreso.STENT EN DA cat
+Infecciones.Infección urinaria cat
+Infecciones.MARSA cat
+Reintervencion durante su estancia UCI.Trasplante cardíaco cat
+Ingreso en: Planta cat
+Ingreso en: Unidad Coronaria cat
+Motivo de ingreso en UCI: Enfermedad no cardiológica cat
+Motivo de ingreso en UCI: Post-operatorio C.Cardiaca cat
+Motivo de ingreso en UCI: TAVI cat

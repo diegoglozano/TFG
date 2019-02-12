@@ -1,0 +1,9 @@
+núm. concentrados hematies primeras 48 h cat
+Tratamiento anticoagulante.A.C.O. cat
+Medidas soporte a la salida de quirófano.Catecolaminas cat
+Complicaciones neurológicas.Polineuropatía enfermo crítico cat
+Complicaciones respiratorias.Traumatismo torácico post-resucitación cat
+Complicaciones hemorrágicas.Sangrado por drenaje quirúrgico cat
+Infecciones.Infección catéter cat
+Ingreso en: Otra: otro hospital cat
+Ingreso en: UVI Polivalente cat

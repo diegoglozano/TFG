@@ -1,0 +1,48 @@
+Tipo de cirugía cat
+Factores de riesgo cardiovascular.Enfermedad vascular cerebral cat
+Enfermedad cardiológica.Cirugía aórtica previa cat
+Enfermedad cardiológica.Cirugía mitral previa cat
+Enfermedad cardiológica.Endocarditis protésica precoz cat
+Resultado último eco.Lesiones de endocarditis-imágenes vibrátiles velos valvulare cat
+Resultado último eco.Mixoma auricular cat
+Intervención realizada.Implante asistencial cat
+Intervención realizada.Explante marcapasos cat
+Intervención realizada.Resección mixoma auricular cat
+Intervención realizada.Reparación esternal cat
+Medidas soporte a la salida de quirófano.Marcapasos cat
+Medidas soporte a la salida de quirófano.Asistencia ventricular cat
+Complicaciones hemodinámicas.Hipotensión leve cat
+Complicaciones hemodinámicas.Bloqueos  AV cat
+Complicaciones hemodinámicas.Síndrome de bajo gasto - una o dos catecolaminas más de 12 h cat
+Complicaciones hemodinámicas.Fallo VI- bajo gasto con PCE elevada cat
+Isquemia miocárdica peri-operatoria.Cambios en ECG cat
+Isquemia miocárdica peri-operatoria.Cambios en ecocardio cat
+Isquemia miocárdica peri-operatoria.Deterioro hemodinámico/arritmias ventriculares cat
+Isquemia miocárdica peri-operatoria.Otro cat
+Terapias en UCI.Ventilación mecánica más de 72 horas cat
+Terapias en UCI.Catecolaminas más de 72 horas cat
+Terapias en UCI.Asistencia ventricular cat
+Terapias en UCI.Angiotac toraco-abdominal cat
+Terapias en UCI.Traqueotomía percutánea cat
+Complicaciones respiratorias.Agudización EPOC cat
+Complicaciones respiratorias.Derrame pleural cat
+Complicaciones respiratorias.Dehiscencia esternal cat
+Complicaciones respiratorias.Atelectasias cat
+Complicaciones respiratorias.Traumatismo torácico post-resucitación cat
+Complicaciones respiratorias.Otro cat
+Complicaciones hemorrágicas.Parada cardiaca por rotura aorta/ventriculo cat
+Complicaciones hemorrágicas.Otro cat
+Tratamiento percutáneo tras el ingreso.Otro cat
+Infecciones.Infección herida quirúrgica cat
+Infecciones.BGN resistentes cat
+Infecciones.Mediastintis cat
+Infecciones.Bacteriemia cat
+Infecciones.Infección inseción dispositivo cat
+Infecciones.MARSA cat
+Infecciones.Pericarditis cat
+Reintervencion durante su estancia UCI.Trasplante cardíaco cat
+Reintervencion durante su estancia UCI.Otro cat
+Situación funcional al ingreso Hospital.Otro cat
+Ingreso en: Reanimación Quirúrgica cat
+Motivo de ingreso en UCI: Complicaciones médicas del postoperatorio cat
+Motivo de ingreso en UCI: Re-intervención precoz (en el mismo ingreso) cat

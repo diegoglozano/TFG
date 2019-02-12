@@ -21,6 +21,7 @@ random_state = 11
 C = np.arange(-4.0, 2.0)
 C = 10**C
 kernel = 'linear'
+# param_grid = [{'C': C, 'kernel': kernel}]
 class_weight = 'balanced'
 scoring = 'f1'
 
@@ -125,7 +126,7 @@ maximo = max(dict_1)
 indice_maximo = dict_1[maximo]
 rfecv = dict_2[indice_maximo]
 best_c = rfecv.estimator_.get_params()['C']
-print(best_c)
+print(f'Best C: {best_c}')
 
 # Imprimimos el número de características resultante
 print(f'Number of features: {rfecv.n_features_}\n')
@@ -148,7 +149,7 @@ sel_cols = X_cols[rfecv.support_]
 X_sel = X[sel_cols]
 
 # Volcamos a un fichero las features resultantes
-OUTPUT_PATH = './' + y_col + '_resultantes.txt'
+OUTPUT_PATH = './' + y_col + '_resultantes_' + scoring + '.txt'
 with open(OUTPUT_PATH, 'w+') as text:
     for col in sel_cols:
         text.write(col + '\n')

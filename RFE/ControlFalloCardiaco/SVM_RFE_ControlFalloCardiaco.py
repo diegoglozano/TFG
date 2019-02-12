@@ -5,20 +5,25 @@ import matplotlib.pyplot as plt
 
 from sklearn.preprocessing import StandardScaler, FunctionTransformer
 from sklearn.impute import SimpleImputer
-from sklearn.model_selection import StratifiedKFold, cross_validate, train_test_split
+from sklearn.model_selection import StratifiedKFold, cross_validate, train_test_split, RepeatedStratifiedKFold, GridSearchCV, cross_val_predict
 from sklearn.svm import SVC
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.feature_selection import RFECV
+from sklearn.metrics import confusion_matrix, make_scorer, f1_score
+
+import time
 
 
 # Variables globales
 PATH = r'../../Data/pacientes_ucic_v3.csv'
 random_state = 11
-C = 0.001
+C = np.arange(-4.0, 2.0)
+C = 10**C
 kernel = 'linear'
+# param_grid = [{'C': C, 'kernel': kernel}]
 class_weight = 'balanced'
-scoring = 'accuracy'
+scoring = 'f1'
 
 # Leemos .csv
 df = pd.read_csv(PATH, sep=';', index_col='Unnamed: 0')
@@ -62,6 +67,7 @@ scaler_media = StandardScaler()
 scaler_moda = StandardScaler()
 
 
+# Función que utilizaremos en el Transformador para poder retornar DataFrames en vez de numpy array
 def return_df(array):
     return pd.DataFrame(array, columns=X.columns)
 
@@ -92,21 +98,41 @@ pipeline = Pipeline([
 # TRAMPA. Problemas con el pipeline. RFE y RFECV tienen un 'check_X_y()' antes de llamar al pipeline (que contiene el imputer)
 X = pipeline.fit_transform(X)
 
-# 5 folds estratificadas
+# 5 folds estratificadas para el RFECV
 skf = StratifiedKFold(n_splits=5)
 
-# Clasificador
-clf = SVC(C=C, kernel=kernel, random_state=random_state, class_weight=class_weight)
+# Diccionario que mapea la RFE Accuracy con un índice
+dict_1 = {}
+# Diccionario que mapea un índice con el objeto RFECV
+dict_2 = {}
 
-# RFE con cross validation
-rfecv = RFECV(clf, cv=skf, scoring=scoring)
-rfecv.fit(X, y)
+time_prebucle = time.time()
+
+# Itero sobre los posibles valores de C
+for i, c in enumerate(C):
+    time_temp1 = time.time()
+    clf_temp = SVC(C=c, kernel=kernel, class_weight=class_weight, random_state=random_state)
+    rfecv_temp = RFECV(clf_temp, cv=skf, scoring=scoring)
+    rfecv_temp.fit(X, y)
+    dict_1[rfecv_temp.grid_scores_[rfecv_temp.n_features_]] = i
+    dict_2[i] = rfecv_temp
+    time_temp2 = time.time()
+    print(f'Time iteration {i}: {time_temp2-time_temp1}')
+
+time_bucle = time.time()
+print(f'Time loop: {time_bucle-time_prebucle}')
+
+maximo = max(dict_1)
+indice_maximo = dict_1[maximo]
+rfecv = dict_2[indice_maximo]
+best_c = rfecv.estimator_.get_params()['C']
+print(f'Best C: {best_c}')
 
 # Imprimimos el número de características resultante
 print(f'Number of features: {rfecv.n_features_}\n')
 
 # Imprimimos RFE accuracy
-print(f'RFE {scoring}: {rfecv.grid_scores_[rfecv.n_features_]}\n')
+print(f'RFE score: {rfecv.grid_scores_[rfecv.n_features_]}\n')
 
 # # Dibujamos gráfica (features vs accuracy)
 # # Plot number of features VS. cross-validation scores
@@ -122,15 +148,26 @@ print(f'RFE {scoring}: {rfecv.grid_scores_[rfecv.n_features_]}\n')
 sel_cols = X_cols[rfecv.support_]
 X_sel = X[sel_cols]
 
+# Volcamos a un fichero las features resultantes
+OUTPUT_PATH = './' + y_col + '_resultantes_' + scoring + '.txt'
+with open(OUTPUT_PATH, 'w+') as text:
+    for col in sel_cols:
+        text.write(col + '\n')
+
 # Separamos en variables numéricas y categóricas
 new_num_cols = [col for col in sel_cols if col.endswith('num')]
 new_cat_cols = [col for col in sel_cols if col.endswith('cat')]
 
+# Creamos el nuevo clasificador con la mejor C
+clf = SVC(C=best_c, kernel=kernel, class_weight=class_weight, random_state=random_state)
 
+
+# Función que retorna un DataFrame en vez de un array de Numpy
 def return_new_df(array):
     return pd.DataFrame(array, columns=sel_cols)
 
 
+# Transformador que implementa la función anterior
 new_trans = FunctionTransformer(return_new_df, validate=False)
 
 
@@ -169,16 +206,11 @@ scores_cv_sel = cross_validate(new_pipeline, X_sel, y, cv=5, scoring=scoring)  #
 scores_cv = cross_validate(old_pipeline, X, y, cv=5, scoring=scoring)  # Antes de RFE
 
 # CV accuracy
-print('Old CV ' + scoring + ': {}' .format(np.mean(scores_cv['test_score'])))
-print('Selected features CV ' + scoring + ': {}\n' .format(np.mean(scores_cv_sel['test_score'])))
+print('Old CV score: {}' .format(np.mean(scores_cv['test_score'])))
+print('Selected features CV score: {}\n' .format(np.mean(scores_cv_sel['test_score'])))
 
-
-# TEST CON TRAIN/TEST
-# Split train/test
-X_train, X_test, y_train, y_test = train_test_split(X_sel, y, stratify=y)
-
-new_pipeline.fit(X_train, y_train)
-scores_test = new_pipeline.predict(X_test)
-
-# Test accuracy
-print(f'Test accuracy: {np.mean(scores_test == y_test)}')
+# Matriz de confusion
+results = cross_val_predict(new_pipeline, X_sel, y, cv=5)
+conf_m = confusion_matrix(y, results, labels=[1, 0])
+print('\nConfusion Matrix:')
+print(conf_m)

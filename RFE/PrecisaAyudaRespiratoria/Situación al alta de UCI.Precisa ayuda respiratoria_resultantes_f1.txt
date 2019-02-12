@@ -1,0 +1,25 @@
+cca_nyha_PF cat
+Índice de Fragilidad cat
+Cifra de plaquetas más baja cat
+Factores de riesgo cardiovascular.Enfermedad ileo-femoral cat
+Enfermedad cardiológica.Intervencionismo coronario percutáneo previo cat
+Resultado último eco.Estenosis aórtica cat
+Resultado último eco.Insuficiencia mitral cat
+Intervención realizada.Bypass a diagonal cat
+Intervención realizada.Otro cat
+Medidas soporte a la salida de quirófano.Marcapasos cat
+Complicaciones hemodinámicas.Bloqueos  AV cat
+Isquemia miocárdica peri-operatoria.Cambios en ECG cat
+Terapias en UCI.Ventilación no invasiva cat
+Terapias en UCI.Coronariografía indicada en UCI cat
+Terapias en UCI.C. valvular durante ingreso en UCI cat
+Complicaciones neurológicas.Polineuropatía enfermo crítico cat
+Complicaciones respiratorias.Agudización EPOC cat
+Complicaciones respiratorias.Atelectasias cat
+Complicaciones respiratorias.S. restrictivo (obesidad) cat
+Complicaciones respiratorias.Traumatismo torácico post-resucitación cat
+Complicaciones respiratorias.Otro cat
+Infecciones.Infección herida quirúrgica cat
+Reintervencion durante su estancia UCI.Trasplante cardíaco cat
+Situación funcional al ingreso Hospital.Ventilación no invasiva cat
+Motivo de ingreso en UCI: TAVI cat

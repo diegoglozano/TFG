@@ -1,0 +1,53 @@
+Talla num
+Tiempo de CEC num
+Tiempo de clampaje num
+Hombre cat
+Mujer cat
+Índice de Fragilidad cat
+Pico de troponina cat
+núm. concentrados hematies primeras 48 h cat
+Factores de riesgo cardiovascular.Dislipemia cat
+Factores de riesgo cardiovascular.Diabetes cat
+Enfermedad cardiológica.Coronaria cat
+Enfermedad cardiológica.Intervencionismo coronario percutáneo previo cat
+Enfermedad cardiológica.IAM cat
+Enfermedad cardiológica.Marcapasos tricameral/desfibrilador cat
+Enfermedad cardiológica.Endocarditis protésica tardía cat
+Enfermedad cardiológica.Cirugía v. aórtica y raíz aórtica previa cat
+Resultado último eco.Alteraciones segmentarias contractilidad cat
+Resultado último eco.Estenosis aórtica cat
+Resultado último eco.HTP mayor de 45 MMHG cat
+cca_lesiones_coronariog_angioTC_PF_varia.DA cat
+Intervención realizada.Cirugía de raiz Aórtica-Bental cat
+Intervención realizada.Bypass a CD cat
+Intervención realizada.Reparación mitral cat
+Intervención realizada.Bypass a CX cat
+Intervención realizada.Implante asistencial cat
+Intervención realizada.Prótesis mecánica aórtica cat
+Intervención realizada.Prótesis mecánica mitral cat
+Intervención realizada.Reparación esternal cat
+Medidas soporte a la salida de quirófano.Balón I.A. cat
+Medidas soporte a la salida de quirófano.Marcapasos cat
+Medidas soporte a la salida de quirófano.Asistencia ventricular cat
+Medidas soporte a la salida de quirófano.ECMO cat
+Complicaciones hemodinámicas.Fallo VI cat
+Complicaciones hemodinámicas.FA/Flutter cat
+Complicaciones hemodinámicas.Bloqueos  AV cat
+Complicaciones hemodinámicas.Shock hemorrágico cat
+Complicaciones hemodinámicas.TV cat
+Complicaciones hemodinámicas.Síndrome de bajo gasto - una o dos catecolaminas más de 12 h cat
+Isquemia miocárdica peri-operatoria.Otro cat
+Terapias en UCI.Balón I.A. cat
+Terapias en UCI.Marcapasos endocavitario cat
+Complicaciones respiratorias.Traumatismo torácico post-resucitación cat
+Complicaciones respiratorias.Otro cat
+Complicaciones renales.Creatinina mayor de 3 de nueva aparición cat
+Complicaciones hemorrágicas.Otro cat
+Infecciones.Infección herida quirúrgica cat
+Infecciones.BGN resistentes cat
+Infecciones.Pericarditis cat
+Reintervencion durante su estancia UCI.Trasplante cardíaco cat
+Situación funcional al ingreso Hospital.Otro cat
+Ingreso en: Reanimación Quirúrgica cat
+Motivo de ingreso en UCI: Complicaciones médicas del postoperatorio cat
+Motivo de ingreso en UCI: Post-operatorio C.Cardiaca cat

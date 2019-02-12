@@ -1,0 +1,5 @@
+cca_nyha_PF cat
+Complicaciones hemodinámicas.Fallo VI cat
+Terapias en UCI.Catecolaminas más de 72 horas cat
+Terapias en UCI.Ventilación no invasiva cat
+Situación funcional al ingreso Hospital.Estable cat

@@ -23,9 +23,7 @@ C = 10**C
 kernel = 'linear'
 # param_grid = [{'C': C, 'kernel': kernel}]
 class_weight = 'balanced'
-my_f1_scorer = make_scorer(f1_score, average='binary', pos_label=0)
-scoring = my_f1_scorer
-name_output_file = 'f1'
+scoring = 'f1'
 
 # Leemos .csv
 df = pd.read_csv(PATH, sep=';', index_col='Unnamed: 0')
@@ -38,7 +36,7 @@ y_cols = [col for col in cols if 'Situación al alta' in col]
 
 # Columnas de entrada y de salida
 X_cols = df.drop(y_cols, axis=1).columns
-y_col = 'Situación al alta de UCI.Estable no precisa cuidados especiales'
+y_col = 'Situación al alta de UCI.Limitado esfuerzo terapéutico'
 
 # Separamos en entrada (X) y salida (y)
 X = df[X_cols]
@@ -151,7 +149,7 @@ sel_cols = X_cols[rfecv.support_]
 X_sel = X[sel_cols]
 
 # Volcamos a un fichero las features resultantes
-OUTPUT_PATH = './' + y_col + '_resultantes_' + name_output_file + '.txt'
+OUTPUT_PATH = './' + y_col + '_resultantes_' + scoring + '.txt'
 with open(OUTPUT_PATH, 'w+') as text:
     for col in sel_cols:
         text.write(col + '\n')

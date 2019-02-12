@@ -1,0 +1,36 @@
+Talla num
+Tiempo de isquemia num
+Índice de Fragilidad cat
+cca_fevi_PF_varab_pre-ingr cat
+Tipo de cirugía cat
+núm. concentrados hematies primeras 48 h cat
+Factores de riesgo cardiovascular.Dislipemia cat
+Factores de riesgo cardiovascular.Enfermedad ileo-femoral cat
+Enfermedad cardiológica.Coronaria cat
+Enfermedad cardiológica.Intervencionismo coronario percutáneo previo cat
+Enfermedad cardiológica.Miocardiopatia dilatada crónica cat
+Enfermedad cardiológica.Cirugía mitral previa cat
+Resultado último eco.Alteraciones segmentarias contractilidad cat
+Resultado último eco.Dilatación aurículas cat
+Intervención realizada.Bypass a DA cat
+Intervención realizada.Reparación mitral cat
+Intervención realizada.Prótesis mecánica aórtica cat
+Intervención realizada.Explante marcapasos cat
+Medidas soporte a la salida de quirófano.Balón I.A. cat
+Medidas soporte a la salida de quirófano.Marcapasos cat
+Complicaciones hemodinámicas.Hipotensión leve cat
+Isquemia miocárdica peri-operatoria.Deterioro hemodinámico/arritmias ventriculares cat
+Terapias en UCI.Cardioversión cat
+Terapias en UCI.Ventilación mecánica invasiva menor de 24 horas cat
+Terapias en UCI.Balón I.A. cat
+Terapias en UCI.ECMO VA cat
+Complicaciones neurológicas.Polineuropatía enfermo crítico cat
+Complicaciones respiratorias.Derrame pleural cat
+Complicaciones respiratorias.Neumotórax cat
+Complicaciones renales.Inicio de tratamiento sustitutivo renal cat
+Complicaciones digestivas.Hemorragia digestiva cat
+Complicaciones hemorrágicas.Sangrado por drenaje quirúrgico cat
+Infecciones.Traqueobronquitis cat
+Reintervencion durante su estancia UCI.Sangrado por drenajes en las primeras 24 horas cat
+Situación funcional al ingreso Hospital.Inestable necesita catecolaminas cat
+Motivo de ingreso en UCI: Post-operatorio C.Cardiaca cat

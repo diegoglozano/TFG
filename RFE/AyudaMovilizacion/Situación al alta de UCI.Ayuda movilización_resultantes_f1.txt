@@ -1,0 +1,22 @@
+Índice de Fragilidad cat
+Factores de riesgo cardiovascular.Dislipemia cat
+Enfermedad cardiológica.Enfermedad valvular cat
+Resultado último eco.Alteraciones segmentarias contractilidad cat
+Resultado último eco.Estenosis aórtica cat
+Resultado último eco.Dilatación VI cat
+cca_lesiones_coronariog_angioTC_PF_varia.Dilatación aorta ascendente cat
+Tratamiento anticoagulante.A.C.O. cat
+Intervención realizada.Bypass a DA cat
+Intervención realizada.Bypass a OM cat
+Intervención realizada.Bypass a CD cat
+Intervención realizada.Bypass a CX cat
+Complicaciones hemodinámicas.Shock hemorrágico cat
+Complicaciones hemodinámicas.TV cat
+Terapias en UCI.Coronariografía indicada en UCI cat
+Complicaciones neurológicas.Polineuropatía enfermo crítico cat
+Complicaciones neurológicas.ACV cat
+Complicaciones respiratorias.Derrame pleural cat
+Situación funcional al ingreso Hospital.Estable cat
+Situación funcional al ingreso Hospital.Ventilación no invasiva cat
+Ingreso en: UVI Polivalente cat
+Motivo de ingreso en UCI: TAVI cat

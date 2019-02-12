@@ -1,0 +1,68 @@
+Talla num
+Peso num
+EDAD num
+Tiempo de CEC num
+Tiempo de clampaje num
+Tiempo de parada circulatoria num
+Hombre cat
+Mujer cat
+Índice de Fragilidad cat
+Pico de troponina cat
+Factores de riesgo cardiovascular.HTA cat
+Factores de riesgo cardiovascular.Dislipemia cat
+Factores de riesgo cardiovascular.Diabetes cat
+Factores de riesgo cardiovascular.Tabaco cat
+Enfermedad cardiológica.Intervencionismo coronario percutáneo previo cat
+Enfermedad cardiológica.Cirugía aórtica previa cat
+Enfermedad cardiológica.F.A. crónica cat
+Enfermedad cardiológica.Endocarditis v. nativa cat
+Enfermedad cardiológica.Miocardiopatía Hipertrófica cat
+Resultado último eco.Alteraciones segmentarias contractilidad cat
+Resultado último eco.Insuficiencia mitral cat
+Resultado último eco.Dilatación VI cat
+Resultado último eco.TAPSE bajo cat
+Resultado último eco.HTP mayor de 45 MMHG cat
+Resultado último eco.Derrame pericárdico cat
+Resultado último eco.Mixoma auricular cat
+Resultado último eco.Estenosis mitral cat
+cca_lesiones_coronariog_angioTC_PF_varia.CD cat
+cca_lesiones_coronariog_angioTC_PF_varia.Cx cat
+cca_lesiones_coronariog_angioTC_PF_varia.TROCO cat
+Tratamiento anticoagulante.A.C.O. cat
+Intervención realizada.Bypass a DA cat
+Intervención realizada.Reparación mitral cat
+Intervención realizada.Implante asistencial cat
+Intervención realizada.Prótesis biológica mitral cat
+Intervención realizada.Reparación trucúspide cat
+Intervención realizada.Cirugía raiz aórtica-David/Jacoob cat
+Intervención realizada.Otro cat
+Medidas soporte a la salida de quirófano.Catecolaminas cat
+Medidas soporte a la salida de quirófano.Marcapasos cat
+Medidas soporte a la salida de quirófano.Otro cat
+Complicaciones hemodinámicas.Hipotensión leve cat
+Complicaciones hemodinámicas.Fallo VD cat
+Complicaciones hemodinámicas.Bloqueos  AV cat
+Complicaciones hemodinámicas.Shock séptico cat
+Complicaciones hemodinámicas.Fallo VI- bajo gasto con PCE elevada cat
+Isquemia miocárdica peri-operatoria.Cambios en ECG cat
+Isquemia miocárdica peri-operatoria.Cambios en ecocardio cat
+Isquemia miocárdica peri-operatoria.Deterioro hemodinámico/arritmias ventriculares cat
+Terapias en UCI.Catecolaminas más de 72 horas cat
+Terapias en UCI.Cardioversión cat
+Terapias en UCI.Balón I.A. cat
+Complicaciones neurológicas.Delirio cat
+Complicaciones neurológicas.Polineuropatía enfermo crítico cat
+Complicaciones respiratorias.Derrame pleural cat
+Complicaciones respiratorias.S. restrictivo (obesidad) cat
+Complicaciones respiratorias.Traumatismo torácico post-resucitación cat
+Complicaciones respiratorias.Otro cat
+Complicaciones hemorrágicas.Sangrado por drenaje quirúrgico cat
+Infecciones.Traqueobronquitis cat
+Situación funcional al ingreso Hospital.Fallo cardiaco con necesidad diuréticos IV cat
+Situación funcional al ingreso Hospital.Estable cat
+Situación funcional al ingreso Hospital.Inestable necesita catecolaminas cat
+Situación funcional al ingreso Hospital.Otro cat
+Ingreso en: UVI Cardiaca cat
+Ingreso en: UVI Polivalente cat
+Ingreso en: Unidad Coronaria cat
+Motivo de ingreso en UCI: Insuficiencia cardiaca cat
