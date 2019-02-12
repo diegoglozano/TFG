@@ -240,7 +240,7 @@ Si se divide un conjunto de datos en uno de entrenamiento y uno de test y se sel
 
 ![Overfitting](./Images/overfitting.png)
 
-## Resultados
+## Experimentos
 
 Se han realizado los experimentos para todas las variables de salida excepto para *Situación al alta.Cuidados especiales por vía aérea artificial*. Esto es debido a que dicha clase solo contiene un ejemplo positivo, que podría contenerse o en el conjunto de entrenamiento o en el de test. En el primer caso, sería imposible testear los resultados y, en el segundo, el modelo sería incapaz de predecir una clase no observada previamente.
 
@@ -286,6 +286,33 @@ Para el caso de un kernel polinómico, el rango de valores utilizado ha sido:
 Los resultados obtenidos han sido los siguientes:
 
 ![results_svm_poly](./Images/results_svm_poly.png)
+
+## F1 score
+
+En el caso de disponer de conjuntos de datos no balanceados, una *accuracy* o exactitud alta no tiene por qué indicar buenos resultados.  
+Por ejemplo, se sabe que solo el 5% de la población tiene cáncer. El resultado de un modelo de aprendizaje automático indica que tiene una *accuracy* de un 94%. Aparentemente puede ser una métrica muy buena pero, si se construye otro modelo cuyo resultado siempre sea que un paciente no tiene cáncer, su *accuracy* sería de un 95%. Por lo tanto, un modelo realmente sencillo con una métrica muy alta no estaría acertando en ningún caso relevante.  
+Para estos casos, se emplea la matriz de confusión y métricas como *recall*, *precision* y *F1*.
+
+Una matriz de confusión, en este caso binaria, tiene la siguiente forma:
+
+![confusion_matrix](./Images/confusion_matrix.png)
+
+- True Positives (TP): ejemplos que el modelo predice como positivos y que realmente son positivos
+- False Positives (FP): ejemplos que el modelo predice como positivos pero realmente son negativos
+- False Negatives (FN): ejemplos que el modelo predice como negativos pero realmente son positivos
+- True Negatives (TN): ejemplos que el modelo predice como negativos y que realmente son negativos
+
+En el caso del hipotético caso de cáncer previamente nombrado, los verdaderos negativos serían los casos correctamente predichos pero irrelevantes.  
+
+- *Recall*: se calcula como TP/(TP + FN). Es decir, indica cuántos casos se han acertado de entre todos los que realmente son positivos.
+*De todos los pacientes con cáncer, ¿cuántos se han predicho como pacientes con cáncer?*
+- *Precision*: se calcula como TP/(TP + FP). Es decir, indica cuántos casos son realmente positivos de entre todos los predichos como positivos.
+*De todos los pacientes predichos como enfermos de cáncer, ¿cuántos son realmente enfermos de cáncer?*
+- *F1*: se calcula como una media ponderada de *recall* y *precision*. F1 = 2·recall·precision/(recall+precision)
+
+En el caso de que la variable minoritaria fuese la negativa, se deberían cambiar los cálculos para que dicha variable pase a ser la relevante.
+
+## Selección de atributos
 
 [1]: https://es.wikipedia.org/wiki/Variable_categ%C3%B3rica
 
