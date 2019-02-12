@@ -310,6 +310,7 @@ En el caso del hipotético caso de cáncer previamente nombrado, los verdaderos 
 *De todos los pacientes predichos como enfermos de cáncer, ¿cuántos son realmente enfermos de cáncer?*
 - *F1*: se calcula como una media ponderada de *recall* y *precision*. F1 = 2·recall·precision/(recall+precision)
 
+Todas estas métricas alcanzan su mejor valor en 1 y, su peor, en 0.  
 En el caso de que la variable minoritaria fuese la negativa, se deberían cambiar los cálculos para que dicha variable pase a ser la relevante.
 
 ## Selección de atributos
