@@ -58,13 +58,16 @@ A continuación se muestra la proporción de los datos de salida, tanto de forma
 # Tabla de contenidos
 
 1. [Preprocesado](#Preprocesado)
-2. [Experimentos](#Experimentos)
+2. [Enfoque](#Enfoque)
     1. [Problema a resolver](#Problema-a-resolver)
-    2. [Validación cruzada](#Validación cruzada)
-    3. [Ajuste de hiperparámetros](#Ajuste de hiperparámetros)
+    2. [Validación cruzada](#Validación-cruzada)
+    3. [Ajuste de hiperparámetros](#Ajuste-de-hiperparámetros)
 3. [Algoritmo](#Algoritmo)
-    1. [Support Vector Machines](#Support Vector Machines)
+    1. [Support Vector Machines](#Support-Vector-Machines)
     2. [Sobreajuste](#Sobreajuste)
+4. [Experimentos](#Experimentos)
+5. [F1 Score](#F1)
+6. [Selección de atributos](#Selección-de-atributos)
 
 ## Preprocesado
 
@@ -171,7 +174,7 @@ A continuación se describe una lista de variables junto con el tipo de preproce
     3. Emergente (intervención en menos de 48 horas del diagnóstico: 2
     4. Urgente (se interviene durante el ingreso de una descompensa: 3
     
-## Experimentos
+## Enfoque
 
 ### Problema a resolver
 
