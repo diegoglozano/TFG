@@ -58,6 +58,13 @@ A continuación se muestra la proporción de los datos de salida, tanto de forma
 # Tabla de contenidos
 
 1. [Preprocesado](#Preprocesado)
+2. [Experimentos](#Experimentos)
+    1. [Problema a resolver](#Problema a resolver)
+    2. [Validación cruzada](#Validación cruzada)
+    3. [Ajuste de hiperparámetros](#Ajuste de hiperparámetros)
+3. [Algoritmo](#Algoritmo)
+    1. [Support Vector Machines](#Support Vector Machines)
+    2. [Sobreajuste](#Sobreajuste)
 
 ## Preprocesado
 
