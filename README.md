@@ -55,6 +55,10 @@ A continuación se muestra la proporción de los datos de salida, tanto de forma
 | Limitado esfuerzo terapéutico | 98.05% | 1.95% | 402 | 8 |
 | Cuidados especiales por vía aérea artificial | 99.76% | 0.24% | 409 | 1 |
 
+# Tabla de contenidos
+
+1. [Preprocesado](##Preprocesado)
+
 ## Preprocesado
 
 A la hora de alimentar los modelos de aprendizaje automático con datos, estos deben ser inteligibles por el ordenador. Por esta misma razón, muchos de los datos de entrada recibidos por parte del hospital deben ser preprocesados de cierta forma. Dichos procesos se denominan *feature engineering*.
