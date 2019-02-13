@@ -68,6 +68,7 @@ A continuación se muestra la proporción de los datos de salida, tanto de forma
 4. [Experimentos](#Experimentos)
 5. [F1 Score](#F1)
 6. [Selección de atributos](#Selección-de-atributos)
+7. [Aprendizaje no supervisado](#Aprendizaje-no-supervisado)
 
 ## Preprocesado
 
@@ -358,6 +359,12 @@ En estos casos, los *falsos negativos* son especialmente relevantes. Cada uno de
 Sin embargo, un falso positivo es un paciente para el que el modelo predice una dependencia en su salida y, sin embargo, dicho paciente no sufre tal dependencia.
 
 > Más vale prevenir que curar
+
+## Aprendizaje no supervisado
+
+Para el caso de la variable *Situación al alta de UCI.Cuidados especiales por vía aérea artificial*, que solo contiene un ejemplo positivo, se ha intentado aplicar aprendizaje no supervisado mediante detección de *outliers*. Sabiendo que la proporción de datos positivos es de 99.76% frente a solo un 0.24%, se ha aplicado un *isolation forest*.  
+El modelo ha sido capaz de clasificar el ejemplo correctamente. Sin embargo, para conseguirlo se ha utilizado como parámetro la proporción de outliers (0.024%). 
+
 
 [1]: https://es.wikipedia.org/wiki/Variable_categ%C3%B3rica
 
