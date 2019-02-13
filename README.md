@@ -57,7 +57,7 @@ A continuación se muestra la proporción de los datos de salida, tanto de forma
 
 # Tabla de contenidos
 
-1. [Preprocesado](##Preprocesado)
+1. [Preprocesado](#Preprocesado)
 
 ## Preprocesado
 
