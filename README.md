@@ -184,6 +184,7 @@ Tras el procesado realizado previamente, se obtienen 232 columnas o variables, d
 - Situación al alta de UCI.Precisa telemetría
 - Situación al alta de UCI.Control de fallo cardiaco
 - Situación al alta de UCI.Vigilancia anemia/anticoagulantes
+- Situación al alta de UCI.Otro
 - Situación al alta de UCI.Ayuda movilización
 - Situación al alta de UCI.Precisa vigilancia herida quirúrgica
 - Situación al alta de UCI.Vigilancia por delirio
