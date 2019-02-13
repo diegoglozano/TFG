@@ -59,7 +59,7 @@ A continuación se muestra la proporción de los datos de salida, tanto de forma
 
 1. [Preprocesado](#Preprocesado)
 2. [Experimentos](#Experimentos)
-    1. [Problema a resolver](#Problema a resolver)
+    1. [Problema a resolver](#Problema-a-resolver)
     2. [Validación cruzada](#Validación cruzada)
     3. [Ajuste de hiperparámetros](#Ajuste de hiperparámetros)
 3. [Algoritmo](#Algoritmo)
