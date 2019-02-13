@@ -364,7 +364,7 @@ Sin embargo, un falso positivo es un paciente para el que el modelo predice una 
 
 Para el caso de la variable *Situación al alta de UCI.Cuidados especiales por vía aérea artificial*, que solo contiene un ejemplo positivo, se ha intentado aplicar aprendizaje no supervisado mediante detección de *outliers*. Sabiendo que la proporción de datos positivos es de 99.76% frente a solo un 0.24%, se ha aplicado un *isolation forest*.  
 El modelo ha sido capaz de clasificar el ejemplo correctamente. Sin embargo, para conseguirlo se ha utilizado como parámetro la proporción de outliers (0.024%).  
-Previamente se ha aplicado PCA con 2 componentes.
+Previamente se ha aplicado PCA con 2 componentes, variables latentes.
 
 ![isolation_forest](./Images/unsupervised/isolation_forest.png)
 
