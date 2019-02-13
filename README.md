@@ -214,16 +214,16 @@ El resultado final es un vector de 5 componentes. Cada una de ellas indicará el
 *Support Vector Machines* (SVM) es un conjunto de algoritmos de aprendizaje automático empleados para resolver tanto problemas de clasificación como de regresión.  
 Dicho algoritmo trata de separar distintas clases con la mayor separación posible mediante hiperplanos, siendo dichos hiperplanos, en un principio, lineales.
 
-![SVM](./Images/svm.png)
+![SVM](./Images/svm/svm.png)
 
 Dado que inicialmente se ha decidido aplicar el algoritmo SVM con un *kernel* lineal, el único hiperparámetro a optimizar es el de penalización *C*. Cuanto menor sea dicho hiperparámetro, más penalización habrá sobre el modelo, evitando posibles casos de *overfitting* o *sobreajuste*.
 
-![SVM_C](./Images/svm_parameter_c.png)
+![SVM_C](./Images/svm/svm_parameter_c.png)
 
 Con el fin de buscar alternativas que mejoren las métricas, también se ha decidido aplicar *SVM* con un kernel de función de base radial. Esto permite que la función resultante sea no lineal, conllevando en la mayoría de ocasiones modelos más complejos.  
 Además, en este caso existe un hiperparámetro más a optimizar, *gamma*.
 
-![SVM_rbf](./Images/svm_kernel_rbf.jpg)
+![SVM_rbf](./Images/svm/svm_kernel_rbf.jpg)
 
 Por último, también es posible aplicar un kernel *polinómico*, que se define:
 
@@ -231,7 +231,7 @@ K(X, y) = (X.T·y + c)^d
 
 donde *d* es el grado y *c* el coeficiente (hiperparámetros que se deben ajustar).
 
-![SVM_poly](./Images/svm_kernel_poly.jpg)
+![SVM_poly](./Images/svm/svm_kernel_poly.jpg)
 
 ### Sobreajuste
 
@@ -245,7 +245,7 @@ Si se divide un conjunto de datos en uno de entrenamiento y uno de test y se sel
 Se han realizado los experimentos para todas las variables de salida excepto para *Situación al alta.Cuidados especiales por vía aérea artificial*. Esto es debido a que dicha clase solo contiene un ejemplo positivo, que podría contenerse o en el conjunto de entrenamiento o en el de test. En el primer caso, sería imposible testear los resultados y, en el segundo, el modelo sería incapaz de predecir una clase no observada previamente.
 
 Se ha escogido como técnica de elección de hiperparámetros *grid search*, debido a que el parámetro de penalización *C* habitualmente toma unos valores en un rango conocido. En este caso los valores escogidos han sido:  
-(10^-4, 10^-3, 10^-2, 10^-1, 10^0, 10^1, 10^2)
+(10^-4, 10^-3, 10^-2, 10^-1, 10^0, 10^1)
 
 Como métrica para elegir el mejor valor se ha escogido la exactitud o *accuracy*, que calcula el porcentaje de ejemplos acertados frente al total.  
 Por otra parte, también se ha escogido la *accuracy* como métrica para mostrar los resultados de la validación cruzada.
@@ -266,26 +266,26 @@ Por último, se ha decidido entrenar además un *modelo tonto* con el fin de com
 
 Los resultados obtenidos han sido los siguientes:
 
-![results_svm_linear](./Images/results_svm_linear.png)
+![results_svm_linear](./Images/results_svm/results_svm_linear.png)
 
 En el caso de uso de un kernel *rbf*, el rango de valores utilizados ha sido el siguiente:  
-(10^-4, 10^-3, 10^-2, 10^-1, 10^0, 10^1, 10^2) para C
-(10^-4, 10^-3, 10^-2, 10^-1, 10^0) para gamma
+(10^-4, 10^-3, 10^-2, 10^-1, 10^0, 10^1) para C
+(10^-4, 10^-3, 10^-2, 10^-1) para gamma
 
 
 Los resultados obtenidos han sido los siguientes:
 
-![results_svm_rbf](./Images/results_svm_rbf.png)
+![results_svm_rbf](./Images/results_svm/results_svm_rbf.png)
 
 Para el caso de un kernel polinómico, el rango de valores utilizado ha sido:  
-(10^-4, 10^-3, 10^-2, 10^-1, 10^0, 10^1, 10^2) para C  
-(10^-4, 10^-3, 10^-2, 10^-1, 10^0) para gamma  
+(10^-4, 10^-3, 10^-2, 10^-1, 10^0, 10^1) para C  
+(10^-4, 10^-3, 10^-2, 10^-1) para gamma  
 (2, 3) para el grado  
 (-1) para el coeficiente  
 
 Los resultados obtenidos han sido los siguientes:
 
-![results_svm_poly](./Images/results_svm_poly.png)
+![results_svm_poly](./Images/results_svm/results_svm_poly.png)
 
 ## F1 score
 
@@ -308,12 +308,41 @@ En el caso del hipotético caso de cáncer previamente nombrado, los verdaderos 
 *De todos los pacientes con cáncer, ¿cuántos se han predicho como pacientes con cáncer?*
 - *Precision*: se calcula como TP/(TP + FP). Es decir, indica cuántos casos son realmente positivos de entre todos los predichos como positivos.
 *De todos los pacientes predichos como enfermos de cáncer, ¿cuántos son realmente enfermos de cáncer?*
-- *F1*: se calcula como una media ponderada de *recall* y *precision*. F1 = 2·recall·precision/(recall+precision)
+- *F1*: se calcula como una media armónica entre *recall* y *precision*. F1 = 2·recall·precision/(recall+precision)
 
 Todas estas métricas alcanzan su mejor valor en 1 y, su peor, en 0.  
 En el caso de que la variable minoritaria fuese la negativa, se deberían cambiar los cálculos para que dicha variable pase a ser la relevante.
 
 ## Selección de atributos
+
+Dado que el conjunto de datos tras el preprocesado tiene un total de 220 atributos o características, muchas de ellas pueden ser irrelevantes y *perjudiciales* para el modelo.  
+Para seleccionar las más importantes o, las que al menos den lugar a mejores métricas, se ha empleado el algoritmo *Recursive Feature Elimination* (RFE).  
+Este algoritmo realiza iteraciones con distintas combinaciones de características. En cada una de ellas entrena al modelo y obtiene una métrica. Al final, el número óptimo de características será aquel que tenga la métrica más alta. Además, es posible hacerlo a su vez mediante una validación cruzada, obteniendo resultados más realistas.
+
+En este caso, se ha aplicado RFE con una validación cruzada de 5 particiones, entrenando un modelo SVM lineal. Para la elección del parámetro C, se ha aplicado un *grid search* sobre los siguientes valores:
+(10^-4, 10^-3, 10^-2, 10^-1, 10^0, 10^1)
+
+Una vez obtenida el mejor parámetro C y la mejor selección de características, se ha vuelto a entrenar el modelo con una validación cruzada de 5 particiones. Se han realizado pruebas tanto optimizando la *accuracy* como *F1*.
+
+Los resultados para la accuracy son los siguientes:
+
+![results_rfe_accuracy](./Images/results_rfe_svm/results_rfe_svm_accuracy.png)
+
+Para la F1:
+
+![results_rfe_f1](./Images/results_rfe_svm/results_rfe_svm_f1.png)
+
+Por norma general, las métricas *recall*, *precision* y *F1* se calculan para la variable minoritaria, que suele ser la positiva. Esto es un aspecto a tener en cuenta a la hora de entrenar el modelo para la variable *Estable. No precisa cuidados especiales*, cuya variable mayoritaria, por suerte, es la positiva.  
+Por lo tanto, en este caso habría que calcular un *F1* a partir de la clase negativa.
+
+En el caso de la *accuracy*, los resultados mejoran pero ninguna, salvo la variable *Estable. No precisa cuidados especiales*, supera los resultados del *Dummy Classifier* o clasificador tonto, que siempre predice la clase mayoritaria.  
+Estas mejoras se aprecian mucho más en el caso de la *F1*, que mejora significativamente en algunos casos, como *Ayuda movilización* o *Precisa ayuda respiratoria*.
+
+Dado que el problema tiene relación con la salud de seres humanos, estas métricas se deben interpretar con mucho cuidado, prestando especial atención a los resultados mostrados en las matrices de confusión.  
+En estos casos, los *falsos negativos* son especialmente relevantes. Cada uno de ellos es un paciente que, según el modelo, tiene una probabilidad baja de darse de alta en la UCI con ciertas dependencias cuando, realmente, la situación es la opuesta.  
+Sin embargo, un falso positivo es un paciente para el que el modelo predice una dependencia en su salida y, sin embargo, dicho paciente no sufre tal dependencia.
+
+> Más vale prevenir que curar
 
 [1]: https://es.wikipedia.org/wiki/Variable_categ%C3%B3rica
 
