@@ -376,7 +376,7 @@ Las variables resultantes se denominan latentes, dado que no representan ninguna
 
 [Notebook](https://github.com/diegoglozano/TFG/blob/master/Notebooks/SVM_linear_notebook.ipynb)
 
-Además, se ha aplicado el algoritmo SVM sobre todos los datos (sin división previa en conjunto de entrenamiento y test), con el fin de apreciar cómo se dostribuyen los ejemplos a lo largo de los ejes y cómo los divide el clasificador.
+Además, se ha aplicado el algoritmo SVM sobre todos los datos (sin división previa en conjunto de entrenamiento y test), con el fin de apreciar cómo se distribuyen los ejemplos a lo largo de los ejes y cómo los divide el clasificador.
 
 Los resultados son los siguientes, con las variables ordenadas en función de la proporción de positivos a la salida:
 
