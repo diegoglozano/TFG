@@ -368,6 +368,33 @@ Previamente se ha aplicado PCA con 2 componentes, variables latentes.
 
 ![isolation_forest](./Images/unsupervised/isolation_forest.png)
 
+## Reducción de dimensionalidad
+
+Con el fin de entender los datos de una forma más *visual*, se ha aplicado un algoritmo de reducción de dimensionalidad: *análisis de componentes principales* (PCA). Este algoritmo representa los datos en un espacio de un número concreto de dimensiones indicado. En este caso, se han escogido dos con el fin de representar los datos.  
+Las variables resultantes se denominan latentes, dado que no representan ninguna característica concreta, siendo simplemente una combinación de las originales.
+
+[Notebook](https://github.com/diegoglozano/TFG/blob/master/Notebooks/SVM_linear_notebook.ipynb)
+
+Además, se ha aplicado el algoritmo SVM sobre todos los datos (sin división previa en conjunto de entrenamiento y test), con el fin de apreciar cómo se dostribuyen los ejemplos a lo largo de los ejes y cómo los divide el clasificador.
+
+Los resultados son los siguientes, con las variables ordenadas en función de la proporción de positivos a la salida:
+
+![estable](./Images/pca_svm/estable.png)
+![telemetria](./Images/pca_svm/precisa_telemetria.png)
+![control de fallo cardiaco](./Images/pca_svm/control_fallo.png)
+![vigilancia anemia](./Images/pca_svm/vigilancia_anemia.png)
+![otro](./Images/pca_svm/otro.png)
+![ayuda movilizacion](./Images/pca_svm/ayuda_movilizacion.png)
+![precisa vigilancia herida](./Images/pca_svm/precisa_vigilancia_herida_quirurgica.png)
+![vigilancia delirio](./Images/pca_svm/vigilancia_delirio.png)
+![ayuda comer](./Images/pca_svm/ayuda_comer.png)
+![ayuda respiratoria](./Images/pca_svm/precisa_ayuda_respiratoria.png)
+![limitado esfuerzo](./Images/pca_svm/limitado_esfuerzo_terapeutico.png)
+![cuidados via aerea](./Images/pca_svm/cuidados_via_artificial.png)
+
+Como se puede apreciar en las gráficas, los ejemplos tienden a acumularse cuando las dos variables latentes toman valores bajos y, esto, parece indicar una situación al alta del paciente estable. También existen muchos casos con las mismas características en los que el paciente precisa telemetría, una situación, a priori, menos grave que las siguientes.  
+Por otra parte, a medida que se avanza en las situaciones de los pacientes y disminuyen los ejemplos positivos, suele tratarse de dependencias más graves (como por ejemplo *precisa ayuda respiratoria*). Estos ejemplos tienden a situarse en la zona en la que existe menos acumulación de pacientes. En el caso de *Cuidados especiales por vía aérea artificial*, el paciente se encuentra completamente aislado respecto a los demás.  
+Por lo tanto, aparentemente se podría establecer un eje diagonal que indicase la gravedad del paciente, siendo esta mayor cuando las variables latentes toman valores más altos, y menor cuando toman valores más bajos. **REGRESIÓN LINEAL**
 
 [1]: https://es.wikipedia.org/wiki/Variable_categ%C3%B3rica
 
