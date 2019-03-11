@@ -397,6 +397,27 @@ Como se puede apreciar en las gráficas, los ejemplos tienden a acumularse cuand
 Por otra parte, a medida que se avanza en las situaciones de los pacientes y disminuyen los ejemplos positivos, suele tratarse de dependencias más graves (como por ejemplo *precisa ayuda respiratoria*). Estos ejemplos tienden a situarse en la zona en la que existe menos acumulación de pacientes. En el caso de *Cuidados especiales por vía aérea artificial*, el paciente se encuentra completamente aislado respecto a los demás.  
 Por lo tanto, aparentemente se podría establecer un eje diagonal que indicase la gravedad del paciente, siendo esta mayor cuando las variables latentes toman valores más altos, y menor cuando toman valores más bajos. **REGRESIÓN LINEAL**
 
+## Análisis ROC
+Otro método para medir el acierto de un clasificador es el área bajo la curva ROC. Para ello se necesita que el modelo retorne probabilidades en lugar de clases. Por norma general, en un caso de clasificación binaria los algoritmos utilizan un umbral de 0.5 para establecer si un ejemplo es positivo o no.  
+Una curva ROC representa el *False Positive Rate* (FPR) frente a *True Positive Rate* (TPR) para distintos umbrales.
+
+- *True Positive Rate* o *sensivity* se define como el número de verdaderos positivos entre la suma de verdaderos positivos más los falsos negativos.
+> De los que son positivos, ¿cuántos clasifico como positivos?
+- *False Positive Rate* se define como 1-*specifity*. *Specifity* se calcula como el número de verdaderos negativos entre la suma de verdaderos negativos más el número de falsos positivos.
+> De los que son negativos, ¿cuántos clasifico como positivos?
+
+Calculando estos valores para varios umbrales se obtiene la curva ROC. El área bajo esta curva se define como AUC, cuyo valor óptimo es de 1.0 y, el peor, 0.5 (línea diagonal).
+
+Una vez obtenidos estos valores, se puede definir como mejor umbral aquel cuyo TPR sea mayor y FPR menor, es decir, el punto más cercano a la esquina superior izquierda (TPR=1 y FPR=0).
+
+Los resultados son los siguientes:
+
+PONER CUADRO
+
+Como se aprecia en el cuadro, los valores de los umbrales son muy bajos, lejanos a 0.5, por lo que se han repetido los experimentos utilizando estos nuevos umbrales. Los resultados son los siguientes:
+
+PONER CUADRO
+
 [1]: https://es.wikipedia.org/wiki/Variable_categ%C3%B3rica
 
 [2]: Aquellos que deben ser asignados antes de la ejecución
