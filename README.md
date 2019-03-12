@@ -70,6 +70,7 @@ A continuación se muestra la proporción de los datos de salida, tanto de forma
 6. [Selección de atributos](#Selección-de-atributos)
 7. [Aprendizaje no supervisado](#Aprendizaje-no-supervisado)
 8. [Reducción de dimensionalidad](#reduccin-de-dimensionalidad)
+9. [Análisis ROC](#Anlisis-roc)
 
 ## Preprocesado
 
