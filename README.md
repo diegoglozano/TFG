@@ -399,25 +399,41 @@ Por otra parte, a medida que se avanza en las situaciones de los pacientes y dis
 Por lo tanto, aparentemente se podría establecer un eje diagonal que indicase la gravedad del paciente, siendo esta mayor cuando las variables latentes toman valores más altos, y menor cuando toman valores más bajos. **REGRESIÓN LINEAL**
 
 ## Análisis ROC
-Otro método para medir el acierto de un clasificador es el área bajo la curva ROC. Para ello se necesita que el modelo retorne probabilidades en lugar de clases. Por norma general, en un caso de clasificación binaria los algoritmos utilizan un umbral de 0.5 para establecer si un ejemplo es positivo o no.  
-Una curva ROC representa el *False Positive Rate* (FPR) frente a *True Positive Rate* (TPR) para distintos umbrales.
+Otro método para medir el rendimiento de un clasificador es el uso de las curvas ROC (*Receiver Operating Characteristics*). Dichas curvas se construyen enfrentando el *False Positive Rate* frente al *True Positive Rate*. Estas métricas se definen de la siguiente forma:
 
 - *True Positive Rate* o *sensivity* se define como el número de verdaderos positivos entre la suma de verdaderos positivos más los falsos negativos.
 > De los que son positivos, ¿cuántos clasifico como positivos?
 - *False Positive Rate* se define como 1-*specifity*. *Specifity* se calcula como el número de verdaderos negativos entre la suma de verdaderos negativos más el número de falsos positivos.
 > De los que son negativos, ¿cuántos clasifico como positivos?
 
-Calculando estos valores para varios umbrales se obtiene la curva ROC. El área bajo esta curva se define como AUC, cuyo valor óptimo es de 1.0 y, el peor, 0.5 (línea diagonal).
+Si, en lugar de obtener clases, se calculan probabilidades de cada clase para cada ejemplo, se puede establecer un umbral que marca la diferencia entre una clase y otra. Utilizando distintos umbrales y calculando el *TPR* y el *FPR* correspondiente, se puede establecer una curva ROC.  
+Una métrica común para observar la calidad de la curva ROC consiste en medir el área bajo su curva (*AUC*). Dicha métrica será óptima si su valor es 1: esto significa que las clases son *PERFECTAMENTE SEPARABLES*. Además, se establece como valor base 0.5, el peor valor posible. En caso de que el área bajo la curva sea menor que 0.5 significará que, simplemente prediciendo lo contrario se mejorarán los resultados. 
+
+![curva_roc](./Images/curva_roc.png)
 
 Una vez obtenidos estos valores, se puede definir como mejor umbral aquel cuyo TPR sea mayor y FPR menor, es decir, el punto más cercano a la esquina superior izquierda (TPR=1 y FPR=0).
 
+Se han realizado experimentos en una validación cruzada de 5 particiones + Grid Search de 2 particiones repetidos 5 veces, optimizando en un caso la *accuracy* y en el otro la *F1*.
+
+Accuracy  
+![acc_auc](./Images/roc/acc_auc.png)
+
+En este caso, la variable *Ayuda al comer* no supera un área bajo la curva de 0.5, por lo que simplemente prediciendo lo contrario se obtendrían unas métricas mejores.
+
+F1  
+![f1_auc](./Images/roc/f1_auc.png)
+
+Para el caso de *F1*, tampoco se supera en la variable anteriormente nombrada y, además, en la variable *Otro*.
+
+Es común utilizar como umbral 0.5 a la hora de decidir a qué clase pertenece un ejemplo. Como se aprecia en el cuadro, los valores de los umbrales en las clases menos balanceadas son muy bajos, lejanos a dicho valor. Para comprobar si utilizando estos nuevos umbrales se obtienen mejoras significativas, se han repetido los experimentos, de nuevo optimizando en un caso la *accuracy* y en el otro la *F1*.  
+
 Los resultados son los siguientes:
 
-PONER CUADRO
+Accuracy  
+![acc_threshold](./Images/roc/acc_threshold.png)
 
-Como se aprecia en el cuadro, los valores de los umbrales son muy bajos, lejanos a 0.5, por lo que se han repetido los experimentos utilizando estos nuevos umbrales. Los resultados son los siguientes:
-
-PONER CUADRO
+F1  
+![f1_threshold](./Images/roc/f1_threshold.png)
 
 [1]: https://es.wikipedia.org/wiki/Variable_categ%C3%B3rica
 
