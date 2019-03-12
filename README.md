@@ -71,6 +71,7 @@ A continuación se muestra la proporción de los datos de salida, tanto de forma
 7. [Aprendizaje no supervisado](#Aprendizaje-no-supervisado)
 8. [Reducción de dimensionalidad](#reducción-de-dimensionalidad)
 9. [Análisis ROC](#Análisis-roc)
+10. [Multietiqueta](#Multietiqueta)
 
 ## Preprocesado
 
@@ -223,7 +224,7 @@ En la primera iteración, se seleccionarán 4 particiones como conjunto de entre
 Se calculará la media de estos vectores de 10 componentes y, tras comparar los resultados, se obtendrá la mejor combinación de hiperparámetros de entre todas las probadas. Por último, se entrenará el conjunto de 4 *folds* inicial con este conjunto de hiperparámetros y se comprobarán los resultados en la partición restante.  
 Este proceso se repetirá en 4 ocasiones más.
 
-El resultado final es un vector de 5 componentes. Cada una de ellas indicará el resultado de la métrica escogida para la validación cruzada de 5 particiones. Su media representará los resultados estimados para nuestro modelo.
+El resultado final es un vector de 5 componentes. Cada una de ellas indicará el resultado de la métrica escogida para la validación cruzada de 5 particiones. Su media representará los resultados estimados para el modelo.
 
 ## Algoritmo
 
@@ -434,6 +435,14 @@ Accuracy
 
 F1  
 ![f1_threshold](./Images/roc/f1_threshold.png)
+
+## Multietiqueta
+Como se dijo previamente, los pacientes pueden encontrarse con varias situaciones de dependencia a la salida. Este tipo de problemas se denominan *multietiqueta*. Una forma de enfocarlos es mediante el uso de *aprendizaje profundo* y redes neuronales.  
+Las redes neuronales son un tipo de modelo de aprendizaje automático. Están formadas por distintas unidades o neuronas conectadas entre sí. Cada unidad realiza una operación matemática (W·X+b) y aplica una función de activación (a(W·X+b)).  
+Si, en la capa de salida, existe una neurona por cada salida (en este caso 11), aplicando una función *sigmoide* a cada una obtendremos las salidas individuales, pudiendo activarse varias (o ninguna) a la vez.
+
+**EXPLICAR MÁS**  
+**RESULTADOS (TERRIBLES)**
 
 [1]: https://es.wikipedia.org/wiki/Variable_categ%C3%B3rica
 
