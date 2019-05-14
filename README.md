@@ -444,6 +444,44 @@ Si, en la capa de salida, existe una neurona por cada salida (en este caso 11), 
 **EXPLICAR MÁS**  
 **RESULTADOS (TERRIBLES)**
 
+
+## Árboles de decisión
+Otros algoritmos frecuentemente utilizados son los árboles de decisión.
+
+Dado que un solo árbol de decisión tiende al sobreajuste, es común utilizar un ensamblaje de árboles. Estos pueden ser de dos tipos:
+- Bagging: los árboles son entrenados independientemente y se obtiene una decisión a partir de sus salidas
+- Boosting: los árboles son entrenados secuencialmente, por lo que los árboles que se entrenan más tarde tienen información sobre los errores de los primeros
+
+Un framework muy utilizado hoy en día es xgboost.
+
+Se han realizado los mismos experimentos explicados previamente (con SVM) con dicho algoritmo.  
+A la hora de utilizar *boostings* de árboles de decisión existen muchos hiperparámetros que se pueden optimizar. Los más importantes son:
+- Número de árboles
+- Profundidad de árbol: el número de niveles o decisiones que el árbol puede tomar
+- Ratio de aprendizaje: dado que los árboles entrenan secuencialmente, es más probable que tiendan al sobreajuste, por lo que cada vez que se entrena un árbol nuevo se le da un peso menor
+- scale_pos_weight: parámetro para dar más peso a ciertas clases (útil para conjuntos de datos no balanceados)
+
+Para el grid search se han dado ciertos valores comunes a estos parámetros:
+
+- Profundidad del árbol: [2, 3]
+- Ratio de aprendizaje: [0.1, 0.01, 0.001]
+- Número de árboles: [200, 300, 400]
+- 'scale_pos_weight': [y.value_counts()[1]/y.value_counts()[0], 1]
+
+Los resultados son los siguientes:
+
+**TABLA XGBOOST ACC VS F1**
+
+Una de las ventajas que tienen los árboles de decisión es su facilidad para ser explicados. Esto se realiza mediante *SHapley Additive exPlanation* (*shap*).
+
+Los resultados para cada una de las variables son los siguientes:
+
+### Estable. No precisa cuidados especiales
+
+![shap_estable](./Images/shap/estable.png)
+
+![shap_estable_mean](./Images/shap/estable_mean.png)
+
 [1]: https://es.wikipedia.org/wiki/Variable_categ%C3%B3rica
 
 [2]: Aquellos que deben ser asignados antes de la ejecución
