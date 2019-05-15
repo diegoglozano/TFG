@@ -230,10 +230,37 @@ El resultado final es un vector de 5 componentes. Cada una de ellas indicará el
 
 ### *Support Vector Machines*
 
-*Support Vector Machines* (SVM) es un conjunto de algoritmos de aprendizaje automático empleados para resolver tanto problemas de clasificación como de regresión.  
-Dicho algoritmo trata de separar distintas clases con la mayor separación posible mediante hiperplanos, siendo dichos hiperplanos, en un principio, lineales.
+*Support Vector Machines* (SVM) es un conjunto de algoritmos de aprendizaje automático empleados para resolver tanto problemas de clasificación como de regresión, siendo uno de los más conocidos de la familia de algoritmos basados en funciones *kernel*.
+
+Dicho *kernel* es un mecanismo de representación de la información de entrada al algoritmo. Se puede definir como una función k : X × X → R, que asigna a cada par de objetos del espacio de entrada, X , un valor real correspondiente al producto escalar de las imágenes de dichos objetos en un espacio F, que denominaremos espacio de características, es decir:
+
+k(x, y) = hφ(x), φ(y)i,
+ 
+donde φ : X → F.
+
+En este caso, la función kernel utilizada es la siguiente:
+
+kL(x, y) = (x, y) = sum(xi*yi)
+
+Como se ha nombrado previamente, dicho kernel es lineal. En caso de que los datos sigan patrones más complejos (no-lineales), es posible utilizar otras funciones kernel. Las más conocidas y utilizadas son las siguientes:
+
+- Kernel polinómico:
+
+kp(x, y) = ((x, y) + r)^p
+
+- Kernel gaussiano:
+
+k(x, y) = e^(-(x-y)^2/(2*std))
+
+Una vez definidas las funciones kernel que se encargan de representar los datos de entrada, se debe entender el funcionamiento de las máquinas de vectores soporte. Estas tratan de separar los datos mediante hiperplanos.  
+Para simplificar, se considerará un caso de clasificación binaria linealmente separable, donde existen muchos hiperplanos capaces de separar las clases. Sin embargo, muchos de ellos serían muy sensibles frente a ruido y a la hora de generalizar en nuevos ejemplos.  
+Por tanto, el hiperplano óptimo será aquel que esté más alejado de los ejemplos de ambas clases, es decir, aquel que maximice el margen entre el hiperplano y los ejemplos.
 
 ![SVM](./Images/svm/svm.png)
+
+Sin embargo, los planos no siempre serán linealmente separables, por lo que es necesario introducir variables de holgura. La nueva función a optimizar será:
+
+1/2 * (w,w) + C * sum(holgura)
 
 Dado que inicialmente se ha decidido aplicar el algoritmo SVM con un *kernel* lineal, el único hiperparámetro a optimizar es el de penalización *C*. Cuanto menor sea dicho hiperparámetro, más penalización habrá sobre el modelo, evitando posibles casos de *overfitting* o *sobreajuste*.
 
@@ -438,7 +465,7 @@ F1
 
 ## Multietiqueta
 Como se dijo previamente, los pacientes pueden encontrarse con varias situaciones de dependencia a la salida. Este tipo de problemas se denominan *multietiqueta*. Una forma de enfocarlos es mediante el uso de *aprendizaje profundo* y redes neuronales.  
-Las redes neuronales son un tipo de modelo de aprendizaje automático. Están formadas por distintas unidades o neuronas conectadas entre sí. Cada unidad realiza una operación matemática (W·X+b) y aplica una función de activación (a(W·X+b)).  
+Las redes neuronales son un tipo de modelo de aprendizaje automático. Están formadas por distintas unidades o neuronas conectadas entre sí. Cada unidad realiza una operación matemática (W·X+b) y aplica una función de activación (a(W·X+b)). Es común que dicha función de activación sea no-lineal, con el fin de encontrar patrones más complejos en los datos.  
 Si, en la capa de salida, existe una neurona por cada salida (en este caso 11), aplicando una función *sigmoide* a cada una obtendremos las salidas individuales, pudiendo activarse varias (o ninguna) a la vez.
 
 **EXPLICAR MÁS**  
@@ -448,11 +475,13 @@ Si, en la capa de salida, existe una neurona por cada salida (en este caso 11), 
 ## Árboles de decisión
 Otros algoritmos frecuentemente utilizados son los árboles de decisión.
 
-Dado que un solo árbol de decisión tiende al sobreajuste, es común utilizar un ensamblaje de árboles. Estos pueden ser de dos tipos:
-- Bagging: los árboles son entrenados independientemente y se obtiene una decisión a partir de sus salidas
+Dado que un solo árbol de decisión tiende al sobreajuste, es común utilizar un ensamblaje de árboles. Cada uno de estos árboles se denomina clasificador o regresor débil (según el caso). Por ejemplo, en caso de clasificación binaria, un clasificador débil es cualquiera capaz de alcanzar más de un 50% de acierto o, dicho de otra forma, capaz de acertar más que el azar. Para que cada uno de los árboles encuentre patrones distintos, estos se alimentan de *subsets* de los datos, es decir, escogen un porcentaje de filas o columnas del conjunto de datos.
+
+Dichos ensamblajes se pueden clasificar en dos categorías:
+- Bagging: los árboles son entrenados independientemente y se obtiene una decisión a partir de sus salidas. Por ejemplo, en una regresión, una salida posible sería la media de las salidas de los árboles. En caso de un problema de clasificación, un método para obtener una salida final podría ser la clase predicha por la mayoría de árboles
 - Boosting: los árboles son entrenados secuencialmente, por lo que los árboles que se entrenan más tarde tienen información sobre los errores de los primeros
 
-Un framework muy utilizado hoy en día es xgboost.
+Un framework muy utilizado hoy en día es xgboost. 
 
 Se han realizado los mismos experimentos explicados previamente (con SVM) con dicho algoritmo.  
 A la hora de utilizar *boostings* de árboles de decisión existen muchos hiperparámetros que se pueden optimizar. Los más importantes son:
@@ -461,7 +490,7 @@ A la hora de utilizar *boostings* de árboles de decisión existen muchos hiperp
 - Ratio de aprendizaje: dado que los árboles entrenan secuencialmente, es más probable que tiendan al sobreajuste, por lo que cada vez que se entrena un árbol nuevo se le da un peso menor
 - scale_pos_weight: parámetro para dar más peso a ciertas clases (útil para conjuntos de datos no balanceados)
 
-Para el grid search se han dado ciertos valores comunes a estos parámetros:
+Para el grid search se han asignado ciertos valores comunes a estos parámetros:
 
 - Profundidad del árbol: [2, 3]
 - Ratio de aprendizaje: [0.1, 0.01, 0.001]
@@ -472,7 +501,11 @@ Los resultados son los siguientes:
 
 **TABLA XGBOOST ACC VS F1**
 
-Una de las ventajas que tienen los árboles de decisión es su facilidad para ser explicados. Esto se realiza mediante *SHapley Additive exPlanation* (*shap*).
+Una de las ventajas que tienen los árboles de decisión es su facilidad para ser explicados. La mayoría de los frameworks implementan métodos para calcular la importancia que tienen las variables en un modelo a la hora de obtener una salida. Dichas importancias son calculadas a partir de las divisiones o *splits* que realizan los árboles para obtener decisiones. 
+
+Sin embargo, por norma general estos métodos no proporcionan información sobre los ejemplos individualizados, sino que obtienen unos resultados a nivel global. En el año 2017 se obtuvo un método para obtener importancias en variables y, de esa forma, poder explicar adecuadamente cómo los modelos se comportan a la hora de predecir unos valores u otros.  
+Esto se realiza mediante el cálculo de los valores *SHapley Additive exPlanation* (en adelante *SHAP*).  
+En un campo tan relevante como lo puede ser el de la medicina, resulta muy interesante no solo ser capaz de predecir con precisión dolencias o enfermedades o, en este caso, situaciones de dependencia a la hora de dar un alta en la UCI, sino saber cuáles son las características que más influyen en el paciente. Especialmente porque existen ciertas variables sobre las que los médicos pueden actuar, minimizando de esta forma las posibles consecuencias.
 
 Los resultados para cada una de las variables son los siguientes:
 
@@ -481,6 +514,9 @@ Los resultados para cada una de las variables son los siguientes:
 ![shap_estable](./Images/shap/estable.png)
 
 ![shap_estable_mean](./Images/shap/estable_mean.png)
+
+En la primera figura, cada uno de los puntos representa un paciente y, el color, el valor de la variable según la escala de la derecha. El SHAP value representa el impacto de la variable sobre la salida.  
+En este caso, un valor de SAPS-3 bajo tiene más impacto sobre un paciente a la hora de ser estable. Esto tiene sentido dado que SAPS-3 es un modelo que trata de predecir la mortalidad de un paciente a partir de ciertos datos y, cuanto mayor, más probabilidad de mortalidad tiene.
 
 [1]: https://es.wikipedia.org/wiki/Variable_categ%C3%B3rica
 
