@@ -246,7 +246,9 @@ Como se ha nombrado previamente, dicho kernel es lineal. En caso de que los dato
 
 - Kernel polinómico:
 
-kp(x, y) = ((x, y) + r)^p
+kp(x, y) = ((x, y) + r)^p,
+
+donde *p* representa el grado y *r* el coeficiente
 
 - Kernel gaussiano:
 
@@ -258,11 +260,14 @@ Por tanto, el hiperplano óptimo será aquel que esté más alejado de los ejemp
 
 ![SVM](./Images/svm/svm.png)
 
-Sin embargo, los planos no siempre serán linealmente separables, por lo que es necesario introducir variables de holgura. La nueva función a optimizar será:
+Sin embargo, los planos no siempre serán linealmente separables, por lo que es necesario introducir variables de holgura que permitan cometer ciertos errores a la hora de realizar la clasificación. Dicha variable indicará en qué medida un ejemplo está bien o mal clasificado. La nueva función a optimizar será:
 
-1/2 * (w,w) + C * sum(holgura)
+min. 1/2 * (w,w) + C * sum(holgura)
 
-Dado que inicialmente se ha decidido aplicar el algoritmo SVM con un *kernel* lineal, el único hiperparámetro a optimizar es el de penalización *C*. Cuanto menor sea dicho hiperparámetro, más penalización habrá sobre el modelo, evitando posibles casos de *overfitting* o *sobreajuste*.
+s.a. yi(hw, xii + b) ≥ 1 − ξi, i = 1, . . . , n,
+     ξi ≥ 0, i = 1, . . . , n.
+
+Dicha expresión añade un parámetro C que permitirá regular el grado de sobreajuste permitido. Cuanto menor sea dicho hiperparámetro, más penalización habrá sobre el modelo, evitando posibles casos de *overfitting* o *sobreajuste*.
 
 ![SVM_C](./Images/svm/svm_parameter_c.png)
 
@@ -270,14 +275,6 @@ Con el fin de buscar alternativas que mejoren las métricas, también se ha deci
 Además, en este caso existe un hiperparámetro más a optimizar, *gamma*.
 
 ![SVM_rbf](./Images/svm/svm_kernel_rbf.jpg)
-
-Por último, también es posible aplicar un kernel *polinómico*, que se define:
-
-K(X, y) = (X.T·y + c)^d
-
-donde *d* es el grado y *c* el coeficiente (hiperparámetros que se deben ajustar).
-
-![SVM_poly](./Images/svm/svm_kernel_poly.jpg)
 
 ### Sobreajuste
 
@@ -302,11 +299,25 @@ Además, dado que el conjunto de datos del problema sufre un desbalanceo, se ha 
 class_weight='balanced'
 ```
 
+Dicho parámetro ajusta los pesos de forma inversamente proporcional a la frecuencia de las clases de los datos de la siguiente manera:
+
+n_samples / (n_classes * np.bincount(y)), es decir, el número de ejemplos dividido entre el número de clases multiplicado por la suma de ejemplos minoritarios
+
 Por otra parte, es común utilizar una *semilla* para inicializar el generador de números pseudoaleatorios, de cara a poder replicar resultados y hacer comparaciones. En este caso, la librería *scikit-learn* ofrece un parámetro que se puede asignar a todas las clases que en algún momento deban inicializar números de forma aleatoria. El código es el siguiente:
 
 ```python
 random_state=11
 ```
+
+En modelos lineales, como es el caso de SVM, es preferible estandarizar los datos antes de alimentar al modelo, restando la media de la variable y dividiendo entre la desviación estándar. De esta forma, todas las características tendrán media 0 y desviación estándar de 1. 
+
+![standard-scaler](./Images/standard-scaler.png)
+
+Además, se debe establecer una estrategia de imputación de valores nulos, en caso de que estos existan:
+- En el caso de las variables categóricas, se han imputado valores según la moda de la característica. 
+- En el caso de las variables numéricas, se han imputado valores según la media de la característica.
+
+Todo esto debe hacerse en tiempo de ejecución, es decir, una vez separados el conjunto destinado a entreno y el conjunto destinado a test. De esta forma, la imputación de valores en el conjunto de test se basará en las observaciones obtenidas en el conjunto de entreno.
 
 Por último, se ha decidido entrenar además un *modelo tonto* con el fin de comparar resultados. En este caso, siempre predice la clase mayoritaria, por lo que su exactitud o *accuracy* será igual al porcentaje de ejemplos de la clase mayoritaria presentes en el conjunto de datos.
 
@@ -315,7 +326,7 @@ Los resultados obtenidos han sido los siguientes:
 ![results_svm_linear](./Images/results_svm/results_svm_linear.png)
 
 En el caso de uso de un kernel *rbf*, el rango de valores utilizados ha sido el siguiente:  
-(10^-4, 10^-3, 10^-2, 10^-1, 10^0, 10^1) para C
+(10^-4, 10^-3, 10^-2, 10^-1, 10^0, 10^1) para C  
 (10^-4, 10^-3, 10^-2, 10^-1) para gamma
 
 
@@ -354,7 +365,8 @@ En el caso del hipotético caso de cáncer previamente nombrado, los verdaderos 
 *De todos los pacientes con cáncer, ¿cuántos se han predicho como pacientes con cáncer?*
 - *Precision*: se calcula como TP/(TP + FP). Es decir, indica cuántos casos son realmente positivos de entre todos los predichos como positivos.
 *De todos los pacientes predichos como enfermos de cáncer, ¿cuántos son realmente enfermos de cáncer?*
-- *F1*: se calcula como una media armónica entre *recall* y *precision*. F1 = 2·recall·precision/(recall+precision)
+- *F1*: se calcula como una media armónica entre *recall* y *precision*:  
+    > F1 = 2·recall·precision/(recall+precision)
 
 Todas estas métricas alcanzan su mejor valor en 1 y, su peor, en 0.  
 En el caso de que la variable minoritaria fuese la negativa, se deberían cambiar los cálculos para que dicha variable pase a ser la relevante.
@@ -363,9 +375,9 @@ En el caso de que la variable minoritaria fuese la negativa, se deberían cambia
 
 Dado que el conjunto de datos tras el preprocesado tiene un total de 220 atributos o características, muchas de ellas pueden ser irrelevantes y *perjudiciales* para el modelo.  
 Para seleccionar las más importantes o, las que al menos den lugar a mejores métricas, se ha empleado el algoritmo *Recursive Feature Elimination* (RFE).  
-Este algoritmo realiza iteraciones con distintas combinaciones de características. En cada una de ellas entrena al modelo y obtiene una métrica. Al final, el número óptimo de características será aquel que tenga la métrica más alta. Además, es posible hacerlo a su vez mediante una validación cruzada, obteniendo resultados más realistas.
+Este algoritmo usa los pesos calculados en los *support vectors* como criterio para ranking. Realiza iteraciones, eliminando en cada una de ellas la variable con menos peso. Al final, el número óptimo de características será aquel que tenga una métrica más alta. Además, es común realizar este procedimiento mediante una validación cruzada, para evitar un sobreajuste y obtener métricas a priori más realistas.  
 
-En este caso, se ha aplicado RFE con una validación cruzada de 5 particiones, entrenando un modelo SVM lineal. Para la elección del parámetro C, se ha aplicado un *grid search* sobre los siguientes valores:
+En este caso, se ha aplicado RFE con una validación cruzada de 5 particiones, entrenando un modelo SVM lineal. Para la elección del parámetro C, se ha aplicado un *grid search* sobre los siguientes valores:  
 (10^-4, 10^-3, 10^-2, 10^-1, 10^0, 10^1)
 
 Una vez obtenida el mejor parámetro C y la mejor selección de características, se ha vuelto a entrenar el modelo con una validación cruzada de 5 particiones. Se han realizado pruebas tanto optimizando la *accuracy* como *F1*.
@@ -393,8 +405,9 @@ Sin embargo, un falso positivo es un paciente para el que el modelo predice una 
 ## Aprendizaje no supervisado
 
 Para el caso de la variable *Situación al alta de UCI.Cuidados especiales por vía aérea artificial*, que solo contiene un ejemplo positivo, se ha intentado aplicar aprendizaje no supervisado mediante detección de *outliers*. Sabiendo que la proporción de datos positivos es de 99.76% frente a solo un 0.24%, se ha aplicado un *isolation forest*.  
+La idea de este algoritmo de árboles se basa en que aquellos ejemplos que se consideran anomalías necesitan menos *splits* o divisiones para aislarse, es decir, la ruta final obtenida por el árbol será más corta.  
+Para ser capaces de entender de forma visual si el ejemplo se considera un outlier o no, se ha aplicado un algoritmo de reducción de dimensionalidad: Principal Component Analysis (PCA). Dicho algoritmo se basa en obtener nuevas características que son combinaciones lineales de las originales. Si, a partir de las dimensiones originales, se obtienen 2 o 3, será una tarea trivial representar los nuevos datos. Las variables resultantes se denominan latentes y no representan ninguna característica concreta, sino una combinación de las originales.  
 El modelo ha sido capaz de clasificar el ejemplo correctamente. Sin embargo, para conseguirlo se ha utilizado como parámetro la proporción de outliers (0.24%).  
-Previamente se ha aplicado PCA con 2 componentes, variables latentes.
 
 ![isolation_forest](./Images/unsupervised/isolation_forest.png)
 
@@ -481,7 +494,7 @@ Dichos ensamblajes se pueden clasificar en dos categorías:
 - Bagging: los árboles son entrenados independientemente y se obtiene una decisión a partir de sus salidas. Por ejemplo, en una regresión, una salida posible sería la media de las salidas de los árboles. En caso de un problema de clasificación, un método para obtener una salida final podría ser la clase predicha por la mayoría de árboles
 - Boosting: los árboles son entrenados secuencialmente, por lo que los árboles que se entrenan más tarde tienen información sobre los errores de los primeros
 
-Un framework muy utilizado hoy en día es xgboost. 
+Uno de los algoritmos basado en boosting de árboles más utilizado hoy en día es XGBoost. 
 
 Se han realizado los mismos experimentos explicados previamente (con SVM) con dicho algoritmo.  
 A la hora de utilizar *boostings* de árboles de decisión existen muchos hiperparámetros que se pueden optimizar. Los más importantes son:
@@ -496,6 +509,10 @@ Para el grid search se han asignado ciertos valores comunes a estos parámetros:
 - Ratio de aprendizaje: [0.1, 0.01, 0.001]
 - Número de árboles: [200, 300, 400]
 - 'scale_pos_weight': [y.value_counts()[1]/y.value_counts()[0], 1]
+
+En este caso, el preprocesado de datos realizado ha sido distinto al programado para SVM. En este caso, las variables categóricas, al no ser soportadas por el framework, se han sustituido por números, teniendo en cuenta el orden que existe entre ellas en caso de que dicho orden exista.  
+Por otra parte, el framework es capaz de manejar los valores NaN por sí solo, por lo que no ha sido necesaria una estrategia de imputación de valores.  
+Por último, en el caso de algoritmos basados en árboles, tampoco es necesaria la estandarización o escalado de datos, dado que los árboles realizan las divisiones o *splits* a partir del orden de los datos, independientemente de cual sea su valor.
 
 Los resultados son los siguientes:
 
